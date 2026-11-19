@@ -107,11 +107,13 @@ em { font-style: normal; }
 .cta { display: grid; gap: 10px; justify-items: start; }
 .cta .btn { width: 100%; }
 .micro { font-size: 13px; color: var(--dim); }
-.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 44px; }
-.proof li { display: grid; gap: 4px; align-content: start; padding: 14px 12px; border-radius: var(--r-md); background: rgba(255,255,255,.85); box-shadow: var(--e1); }
-.proof b { font-size: clamp(22px, 6vw, 34px); line-height: 1; font-weight: 650; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.proof { display: grid; gap: 12px; margin-top: 44px; }
+.proof li { display: grid; grid-template-columns: 128px 1fr; align-items: center; gap: 18px; padding: 20px 22px; border-radius: var(--r-md); background: rgba(255,255,255,.9); box-shadow: var(--e1); }
+.proof li:nth-child(1) { background: linear-gradient(135deg, var(--yel-soft), #fff 80%); }
+.proof li:nth-child(2) { background: linear-gradient(135deg, var(--blue-soft), #fff 80%); }
+.proof b { font-size: 40px; line-height: 1; font-weight: 650; letter-spacing: -.045em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .proof b em { color: var(--blue); }
-.proof span { font-size: 12.5px; line-height: 1.35; color: var(--dim); }
+.proof span { font-size: 15px; line-height: 1.4; color: var(--muted); }
 
 /* voucher */
 .voucher { --stub: 80px; display: block; justify-self: center; width: min(100%, 320px); color: #fff; text-decoration: none; filter: drop-shadow(0 18px 24px rgba(47,75,255,.25)) drop-shadow(0 2px 4px rgba(10,10,11,.15)); -webkit-tap-highlight-color: transparent; }
@@ -317,9 +319,12 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   .wallet { display: inline-flex; }
   .cta .btn, .closing .btn { width: auto; }
   .hero > .wrap { padding: 64px 40px 36px; }
-  .proof li { padding: 18px 16px; }
 }
 @media (min-width: 720px) {
+  .proof { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+  .proof li { grid-template-columns: 1fr; align-items: start; gap: 12px; padding: 28px; }
+  .proof b { font-size: 48px; }
+  .proof span { font-size: 15px; }
   .wrap { padding-inline: 24px; }
   .hide-s { display: inline; }
   .job { grid-template-columns: 48px 1fr auto auto; align-items: center; gap: 20px; padding: 22px 22px 22px 20px; }
@@ -348,9 +353,6 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   .hero-top { grid-template-columns: 1fr 280px; align-items: center; gap: 48px; }
   .hero-row { grid-template-columns: 1fr auto; align-items: end; gap: 48px; margin-top: 44px; }
   .cta { justify-items: end; }
-  .proof { gap: 16px; margin-top: 64px; }
-  .proof li { padding: 22px; }
-  .proof span { font-size: 14px; }
   .voucher { --stub: 92px; width: 280px; }
   .v-card { transform: rotate(-5deg); animation-name: vFloatL; }
   .v-main { padding: 22px 20px 20px; gap: 6px; }
