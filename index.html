@@ -144,21 +144,43 @@ h2 em { color: var(--blue); }
 
 /* orders board */
 .board-grid { display: grid; gap: 12px; }
-.win { padding: 8px; }
-.win-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px 12px; }
-.live { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border-radius: 999px; background: var(--blue-soft); font: 600 12px/1 var(--sans); color: var(--blue); }
-.jobs { display: grid; gap: 6px; }
-.job { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 12px 12px; padding: 12px; border-radius: var(--r-md); background: var(--paper); transition: background .25s, box-shadow .25s; }
-.job:hover { background: #F2F2EF; }
-.job.mine { background: var(--yel-soft); box-shadow: inset 0 0 0 1.5px rgba(150,180,20,.45); }
-.av { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: #fff; box-shadow: var(--e1); font-weight: 650; font-size: 18px; color: var(--blue); }
-.job.mine .av { background: var(--yel); color: var(--ink); box-shadow: none; }
-.jb { min-width: 0; }
-.jb h3 { font-size: 15.5px; line-height: 1.25; font-weight: 600; letter-spacing: -.01em; }
-.meta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--dim); }
-.pay { padding: 6px 10px; border-radius: 999px; background: #fff; box-shadow: var(--e1); font: 650 14px/1 var(--sans); font-variant-numeric: tabular-nums; color: var(--blue); }
+.win { padding: 10px; box-shadow: var(--e2); }
+.win-head { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; padding: 10px 8px 12px; }
+.win-title { font-size: 19px; font-weight: 650; letter-spacing: -.02em; }
+.live { display: inline-flex; align-items: center; gap: 8px; padding: 6px 11px; border-radius: 999px; background: var(--blue-soft); font: 600 12px/1 var(--sans); color: var(--blue); }
+.win-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 10px; padding: 4px; border-radius: var(--r-md); background: radial-gradient(120% 140% at 0 0, #1B2A8F 0%, var(--ink) 60%); color: #fff; }
+.win-stats div { display: grid; gap: 4px; padding: 12px 10px; }
+.win-stats div + div { border-left: 1px solid rgba(255,255,255,.1); }
+.win-stats b { font-size: 20px; line-height: 1; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.win-stats div:first-child b { color: var(--yel); }
+.win-stats span { font: 500 10px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.jobs { display: grid; gap: 8px; }
+.job { display: grid; grid-template-columns: 44px 1fr auto; align-items: start; gap: 12px; padding: 14px 14px 12px; border-radius: var(--r-md); background: #fff; box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow .3s var(--ease), transform .3s var(--ease); }
+.job:hover { box-shadow: inset 0 0 0 1px rgba(47,75,255,.25), 0 14px 30px -18px rgba(10,10,11,.35); transform: translateY(-1px); }
+.job.mine { background: var(--yel-soft); box-shadow: inset 0 0 0 1.5px rgba(150,180,20,.5); }
+.av { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--blue-soft); font-weight: 700; font-size: 18px; color: var(--blue); }
+.job[data-cat="Trades"] .av, .job[data-cat="Shops"] .av { background: var(--ink); color: var(--yel); }
+.job[data-cat="Hotels"] .av { background: var(--yel-soft); color: #4A5A00; }
+.job.mine .av { background: var(--yel); color: var(--ink); }
+.jb { min-width: 0; padding-top: 1px; }
+.jb h3 { font-size: 16px; line-height: 1.25; font-weight: 650; letter-spacing: -.015em; }
+.meta { margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--dim); }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.tags span { padding: 4px 8px; border-radius: 999px; background: var(--paper); font-size: 11.5px; font-weight: 500; line-height: 1.2; color: var(--muted); white-space: nowrap; }
+.job.mine .tags span { background: rgba(255,255,255,.7); }
+.tags .hot { background: #FDECEA; color: var(--bad); }
+.tags .hot::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: currentColor; vertical-align: 1px; }
+/* price tag sticker */
+.pay { position: relative; display: grid; justify-items: center; gap: 3px; min-width: 92px; padding: 10px 12px 9px 18px; border-radius: 16px; background: linear-gradient(155deg, #EAFC92 0%, var(--yel) 55%, #C6E83A 100%); color: var(--ink); transform: rotate(3deg); box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 1px 2px rgba(10,10,11,.12), 0 12px 22px -10px rgba(110,140,0,.6); transition: transform .35s var(--ease); }
+.pay::before { content: ""; position: absolute; left: 7px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #fff; box-shadow: inset 0 1px 1px rgba(10,10,11,.25); }
+.pay small { font: 600 9.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; opacity: .65; }
+.pay b { font-size: 27px; line-height: 1; font-weight: 750; letter-spacing: -.045em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pay em { font: 500 10px/1 var(--mono); font-style: normal; letter-spacing: .02em; opacity: .7; white-space: nowrap; }
+.job:hover .pay { transform: rotate(0) scale(1.05); }
+.job.mine .pay { background: var(--ink); color: #fff; box-shadow: 0 12px 22px -10px rgba(10,10,11,.5); }
+.job.mine .pay b { color: var(--yel); }
 .acts { grid-column: 1 / -1; display: flex; gap: 8px; }
-.acts .btn { flex: 1; min-height: 42px; font-size: 14px; }
+.acts .btn { flex: 1; min-height: 44px; font-size: 14px; }
 .empty { padding: 34px 16px; border-radius: var(--r-md); background: var(--paper); text-align: center; color: var(--dim); }
 .msg { min-height: 0; font-size: 14px; font-weight: 500; }
 .msg:empty { display: none; }
@@ -296,9 +318,14 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
 @media (min-width: 720px) {
   .wrap { padding-inline: 24px; }
   .hide-s { display: inline; }
-  .job { grid-template-columns: 44px 1fr auto auto; padding: 12px 12px 12px 14px; }
+  .job { grid-template-columns: 48px 1fr auto auto; align-items: center; gap: 16px; padding: 16px 16px 16px 16px; }
+  .av { width: 48px; height: 48px; font-size: 20px; }
+  .pay { min-width: 112px; padding: 12px 14px 11px 20px; }
+  .pay b { font-size: 32px; }
   .acts { grid-column: auto; }
   .acts .btn { flex: none; }
+  .win-stats b { font-size: 26px; }
+  .win-stats div { padding: 14px 16px; }
   .steps, .rates { grid-template-columns: repeat(3, 1fr); }
   .steps li:first-child { background: linear-gradient(180deg, var(--yel-soft), #fff 70%); }
   .rates-foot { grid-template-columns: 1fr auto; align-items: center; padding: 20px 24px; }
@@ -420,7 +447,8 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   </div>
   <div class="board-grid">
     <div class="win" id="tasks">
-      <div class="win-head"><span class="label">Order · Blog · Pays</span><span class="live"><span class="pulse" aria-hidden="true"></span>Live</span></div>
+      <div class="win-head"><span class="win-title">Open orders</span><span class="live"><span class="pulse" aria-hidden="true"></span>Live · updated just now</span></div>
+      <div class="win-stats"><div><b id="openN">5</b><span>open now</span></div><div><b id="topPay">+95 R</b><span>top order</span></div><div><b id="paidToday">0 R</b><span>paid out today</span></div></div>
       <div class="jobs" id="jobs"></div>
       <div class="msg bad" id="msg" role="status"></div>
     </div>
@@ -544,13 +572,13 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   ];
   var NOW = new Date().getFullYear();
   function tierFor(age) { var r = 0; RANKS.forEach(function (k, i) { if (age >= k.at) r = i; }); return r; }
-  /* [subject, category, blog, base pay, topic] */
+  /* [subject, category, blog, base pay, topic, words, due, spots left, posted mins ago] */
   var SEED = [
-    ["Velvet Hair Studio", "Salons", "GlowGuide", 60, "Haircut and colour"],
-    ["Iron Row Gym", "Gyms", "TrustTrail", 55, "Membership and classes"],
-    ["QuickFix Plumbing", "Trades", "FixItFiles", 95, "Emergency callout"],
-    ["Harbour Hotel", "Hotels", "StayScribe", 75, "Weekend stay"],
-    ["Bloom & Co Florist", "Shops", "PennyPost", 45, "Bouquet order"]
+    ["Velvet Hair Studio", "Salons", "GlowGuide", 60, "Haircut and colour", 120, "24h", 3, 4],
+    ["Iron Row Gym", "Gyms", "TrustTrail", 55, "Membership and classes", 100, "48h", 5, 11],
+    ["QuickFix Plumbing", "Trades", "FixItFiles", 95, "Emergency callout", 180, "12h", 1, 2],
+    ["Harbour Hotel", "Hotels", "StayScribe", 75, "Weekend stay", 150, "24h", 2, 18],
+    ["Bloom & Co Florist", "Shops", "PennyPost", 45, "Bouquet order", 80, "48h", 4, 26]
   ];
 
   function fresh() { return { bal: 0, done: 0, queue: [], ledger: [], gone: [], user: "", year: 0, cats: [] }; }
@@ -563,7 +591,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   function ageYrs() { return S.year ? Math.max(0, NOW - S.year) : 0; }
   function rankIdx() { return S.user ? tierFor(ageYrs()) : 0; }
   function allJobs() {
-    return SEED.map(function (s, i) { return { id: "t" + i, biz: s[0], cat: s[1], blog: s[2], pay: s[3], topic: s[4] }; })
+    return SEED.map(function (s, i) { return { id: "t" + i, biz: s[0], cat: s[1], blog: s[2], pay: s[3], topic: s[4], words: s[5], due: s[6], spots: s[7], ago: s[8] }; })
       .filter(function (j) { return S.gone.indexOf(j.id) < 0; });
   }
   function jobById(id) { return allJobs().filter(function (j) { return j.id === id; })[0]; }
@@ -573,8 +601,10 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
     var q = S.queue.indexOf(j.id) >= 0, p = posting[j.id], full = S.queue.length >= 3, a;
     if (q) a = '<button class="btn btn-y" type="button" data-post="' + j.id + '"' + (p ? " disabled" : "") + ">" + (p ? "Posting…" : "Post review") + '</button><button class="btn btn-line" type="button" data-drop="' + j.id + '"' + (p ? " disabled" : "") + ">Drop</button>";
     else a = '<button class="btn btn-line" type="button" data-claim="' + j.id + '"' + (full ? " disabled" : "") + ">Take order</button>";
-    return '<article class="job' + (q ? " mine" : "") + '"><span class="av" aria-hidden="true">' + esc(String(j.biz).charAt(0)) + '</span><div class="jb"><h3>' + esc(j.biz) + '</h3><div class="meta">' + esc(j.blog) + " · " + esc(j.topic) +
-      '</div></div><span class="pay">+' + fmt(pay(j)) + ' R</span><div class="acts">' + a + "</div></article>";
+    var m = RANKS[rankIdx()].m, how = m > 1 ? fmt(j.pay) + " R × " + m : S.user ? "Fresh rate" : "Base rate";
+    return '<article class="job' + (q ? " mine" : "") + '" data-cat="' + esc(j.cat) + '"><span class="av" aria-hidden="true">' + esc(String(j.biz).charAt(0)) + '</span><div class="jb"><h3>' + esc(j.biz) + '</h3><div class="meta">' + esc(j.blog) + " · " + esc(j.topic) +
+      '</div><div class="tags"><span>' + esc(j.cat) + "</span><span>~" + j.words + " words</span><span>Due " + esc(j.due) + '</span><span class="' + (j.spots < 3 ? "hot" : "") + '">' + j.spots + (j.spots === 1 ? " spot" : " spots") + " left</span><span>" + j.ago + " min ago</span></div>" +
+      '</div><span class="pay"><small>You earn</small><b>+' + fmt(pay(j)) + ' R</b><em>' + how + '</em></span><div class="acts">' + a + "</div></article>";
   }
 
   function render() {
@@ -583,6 +613,9 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
     var list = allJobs();
     list.sort(function (a, b) { return (S.queue.indexOf(b.id) >= 0) - (S.queue.indexOf(a.id) >= 0); });
     $("#jobs").innerHTML = list.length ? list.map(jobHTML).join("") : '<div class="empty">All orders taken. New ones are coming.</div>';
+    $("#openN").textContent = list.length;
+    $("#topPay").textContent = list.length ? "+" + fmt(Math.max.apply(null, list.map(pay))) + " R" : "–";
+    var d = new Date(); $("#paidToday").textContent = fmt(4200 + (d.getHours() * 60 + d.getMinutes()) * 13 + S.done * 60) + " R";
     $("#qn").textContent = S.queue.length;
     $("#slots").setAttribute("data-n", String(S.queue.length));
     if (S.user) {
