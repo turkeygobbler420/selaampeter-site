@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#FAFAF9" id="tc">
 <script>
 /* Apply the saved theme before first paint so there is no flash */
-(function () { try { var t = localStorage.getItem("sp-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+document.documentElement.setAttribute("data-theme", "light");
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,36 +40,6 @@
   --ease: cubic-bezier(.2, .8, .2, 1);
   --nav-h: 64px;
   color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #07080A; --bg-1: #0B0C0E; --surface: #101114; --surface-2: #16181B;
-    --fg: #EDEEF0; --muted: #A1A4AB; --dim: #80848D;
-    --line: rgba(255, 255, 255, .075); --line-strong: rgba(255, 255, 255, .14);
-    --amber-ink: #FFD058; --cool: #7C8CFF;
-    --up: #3DD68C; --warn: #F2B54E; --down: #FF6B75;
-    --hi: rgba(255, 255, 255, .06);
-    --shadow: 0 1px 0 rgba(0, 0, 0, .5), 0 24px 60px -24px rgba(0, 0, 0, .85);
-    --deep: 0 40px 100px -30px rgba(0, 0, 0, .7);
-    --grid: rgba(255, 255, 255, .05);
-    --glow-a: rgba(255, 208, 88, .14); --glow-b: rgba(124, 140, 255, .16);
-    --dot: rgba(255, 255, 255, .09);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #07080A; --bg-1: #0B0C0E; --surface: #101114; --surface-2: #16181B;
-  --fg: #EDEEF0; --muted: #A1A4AB; --dim: #80848D;
-  --line: rgba(255, 255, 255, .075); --line-strong: rgba(255, 255, 255, .14);
-  --amber-ink: #FFD058; --cool: #7C8CFF;
-  --up: #3DD68C; --warn: #F2B54E; --down: #FF6B75;
-  --hi: rgba(255, 255, 255, .06);
-  --shadow: 0 1px 0 rgba(0, 0, 0, .5), 0 24px 60px -24px rgba(0, 0, 0, .85);
-  --deep: 0 40px 100px -30px rgba(0, 0, 0, .7);
-  --grid: rgba(255, 255, 255, .05);
-  --glow-a: rgba(255, 208, 88, .14); --glow-b: rgba(124, 140, 255, .16);
-  --dot: rgba(255, 255, 255, .09);
-  color-scheme: dark;
 }
 @property --beam { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 @keyframes beam { to { --beam: 360deg; } }
@@ -1052,11 +1022,7 @@ section { padding-block: clamp(64px, 9vw, 112px); }
     cr = rankIdx(); calc();
   });
 
-  /* theme follows the system */
-  var mq = matchMedia("(prefers-color-scheme: dark)");
-  function paint() { $("#tc").setAttribute("content", mq.matches ? "#07080A" : "#FAFAF9"); }
-  if (mq.addEventListener) mq.addEventListener("change", paint);
-  paint();
+  /* light theme only */
 
   /* menu */
   var sheet = $("#sheet"), mb = $("#menuBtn");
