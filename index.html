@@ -690,6 +690,41 @@ details[open] summary::after { background: var(--ink); color: #fff; }
   .v-amt { font-size: 56px; }
   @keyframes vFloatL { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(-3deg) translateY(-10px); } }
 }
+/* light cards: no more ink panels */
+.desk, .rates-sec, .closing, .ticket { background: var(--card); color: var(--ink); box-shadow: 0 0 0 1px var(--line), var(--e2); }
+.desk::before, .rates-sec::before, .closing::before { background: rgba(47,75,255,.10); }
+.desk .label, .held span, .desk p#rankSub { color: var(--dim); }
+.desk p#rankSub a, .ticket a { color: var(--blue); }
+.held { border-top-color: var(--line); }
+.held b, .ticket b { color: var(--blue); }
+.rates-sec { background: linear-gradient(180deg, var(--card), var(--paper)); }
+.rates-sec .sec-head .label, .closing .label { background: var(--card); color: var(--muted); box-shadow: var(--e1); }
+.rates-sec .sec-head .label::before, .closing .label::before { background: var(--blue); }
+.rates-sec .sec-head h2 em { color: var(--dim); }
+.rates-sec .sec-head p { color: var(--muted); }
+.rate { background: var(--paper-2); box-shadow: inset 0 0 0 1px var(--line); }
+.rate .age, .rate .range span { color: var(--dim); }
+.rate .mult, .rate .range { color: var(--ink); }
+.rate .bar { background: rgba(10,10,11,.07); }
+.rate .bar i { background: var(--ink); }
+.rate.pop { box-shadow: 0 0 0 1px rgba(47,75,255,.35), 0 0 0 5px rgba(47,75,255,.10), 0 20px 50px -24px rgba(47,75,255,.55); }
+.closing { background: radial-gradient(120% 90% at 50% 120%, var(--blue-soft), var(--card) 60%); }
+.closing::after { background-image: linear-gradient(rgba(10,10,11,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(10,10,11,.05) 1px, transparent 1px); }
+.closing h2 em { color: var(--blue); }
+.closing .sub { color: var(--muted); }
+.ticket span { color: var(--dim); }
+.ticket { background: var(--yel-soft); box-shadow: inset 0 0 0 1px rgba(10,10,11,.08); }
+/* voucher: white ticket, lime stub */
+.voucher { color: var(--ink); filter: drop-shadow(0 18px 24px rgba(47,75,255,.18)) drop-shadow(0 1px 2px rgba(10,10,11,.14)); }
+.v-card { background: var(--card); }
+.v-main { background: radial-gradient(120% 90% at 0 0, rgba(47,75,255,.10), transparent 60%); }
+.v-label { color: var(--dim); }
+.v-amt { color: var(--blue); }
+.v-sub { color: var(--muted); }
+/* soft page changes: sections ease in as they arrive */
+.js-reveal section.pre { opacity: 0; transform: translateY(18px); }
+.js-reveal section { transition: opacity .7s var(--ease), transform .7s var(--ease); }
+@media (prefers-reduced-motion: reduce) { .js-reveal section.pre { opacity: 1; transform: none; } }
 </style>
 </head>
 <body>
@@ -1029,6 +1064,18 @@ details[open] summary::after { background: var(--ink); color: #fff; }
   $("#resetBtn").addEventListener("click", function () { S = fresh(); try { localStorage.removeItem(KEY); } catch (e) {} posting = {}; $("#jName").value = ""; yr.value = ""; tierPrev(); $("#jMsg").textContent = ""; $("#ticket").hidden = true; cr = 0; say(""); render(); });
 
   render();
+})();
+</script>
+<script>
+(function () {
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var secs = [].slice.call(document.querySelectorAll("main section, body > section")).filter(function (el) { return el.getBoundingClientRect().top > innerHeight * 0.9; });
+  if (!secs.length) return;
+  document.documentElement.classList.add("js-reveal");
+  secs.forEach(function (el) { el.classList.add("pre"); });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px", threshold: 0.04 });
+  secs.forEach(function (el) { io.observe(el); });
+  addEventListener("hashchange", function () { var t = document.querySelector(location.hash); if (t && t.classList) t.classList.remove("pre"); });
 })();
 </script>
 </body>
