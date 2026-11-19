@@ -102,7 +102,7 @@ img, svg { display: block; max-width: 100%; }
 .proof span { display: block; margin-top: 8px; font-size: 12.5px; line-height: 1.3; color: rgba(255,255,255,.6); }
 
 /* ---------- orders card ---------- */
-.win { background: #fff; color: var(--fg); border-radius: var(--r-lg); box-shadow: 0 30px 60px -24px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.12); overflow: hidden; }
+.win { background: #fff; color: var(--fg); border-radius: var(--r-lg); box-shadow: 8px 8px 0 var(--lime); overflow: hidden; }
 .ord-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 14px; }
 .ord-head h2 { font: 700 19px/1 var(--head); letter-spacing: -.03em; }
 .live { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 999px; background: var(--bg-1); font-size: 11.5px; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: .08em; }
@@ -115,19 +115,23 @@ img, svg { display: block; max-width: 100%; }
 .ord-held { flex: none; text-align: center; line-height: 1.1; padding: 8px 12px; border-radius: 14px; background: rgba(255,255,255,.1); }
 .ord-held b { display: block; font: 800 22px/1 var(--head); color: var(--lime); }
 .ord-held span { font-size: 11px; color: rgba(255,255,255,.65); }
-.jobs { display: grid; padding: 4px 8px 8px; }
-.job { display: grid; grid-template-columns: 44px minmax(0,1fr) auto; grid-template-areas: "av jb pay" "acts acts acts"; align-items: center; gap: 10px 12px; padding: 14px 12px; border-radius: 18px; }
-.job + .job { box-shadow: 0 -1px 0 var(--line); }
-.av { grid-area: av; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--bg-1); color: var(--forest); font: 800 17px/1 var(--head); }
-.jb { grid-area: jb; min-width: 0; }
-.job h3 { font: 700 15.5px/1.25 var(--head); letter-spacing: -.02em; }
-.job .meta { margin-top: 2px; font-size: 13px; color: var(--dim); }
-.pay { grid-area: pay; padding: 8px 12px; border-radius: 999px; background: var(--lime-soft); font: 800 15px/1 var(--head); letter-spacing: -.02em; color: var(--forest); white-space: nowrap; }
-.acts { grid-area: acts; display: flex; gap: 8px; }
-.acts .btn { flex: 1; min-height: 44px; padding: 0 18px; font-size: 14px; }
+.jobs { display: grid; gap: 14px; padding: 8px 14px 16px; }
+.job { display: grid; grid-template-columns: 96px minmax(0,1fr); grid-template-areas: "pay jb" "pay acts"; align-items: start; background: #fff; border: 2px solid #1D1760; border-radius: 20px; box-shadow: 4px 4px 0 var(--lime); overflow: hidden; transition: transform .2s, box-shadow .2s; }
+.job:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--lime); }
+.av { display: none; }
+.jb { grid-area: jb; min-width: 0; padding: 14px 14px 0; }
+.job h3 { font: 700 16px/1.2 var(--head); letter-spacing: -.02em; }
+.job .meta { margin-top: 3px; font-size: 13px; color: var(--dim); }
+.pay { grid-area: pay; align-self: stretch; display: grid; place-items: center; padding: 0 8px; background: var(--lime); border-right: 2px dashed #1D1760; font: 800 22px/1 var(--head); letter-spacing: -.04em; color: #1D1760; white-space: nowrap; }
+.acts { grid-area: acts; display: flex; gap: 8px; padding: 10px 14px 14px; }
+.acts .btn { flex: 1; min-height: 42px; padding: 0 16px; font-size: 14px; }
+.acts .btn-line { background: #1D1760; color: #fff; box-shadow: none; }
+.acts .btn-line:hover { background: #2B22A0; }
 .acts .btn-y::after { display: none; }
-.job.mine { background: #F4F8E6; box-shadow: inset 3px 0 0 var(--lime-2); }
-.job.mine + .job { box-shadow: none; }
+.job.mine { background: #1D1760; color: #fff; }
+.job.mine .meta { color: rgba(255,255,255,.7); }
+.job.mine .acts .btn-line { background: #fff; color: #1D1760; }
+.job.mine + .job { box-shadow: 4px 4px 0 var(--lime); }
 .empty { padding: 28px 18px; text-align: center; font-size: 14px; color: var(--dim); }
 .msg { margin: 0; padding: 0 18px; font-size: 14px; font-weight: 600; min-height: 0; }
 .msg:empty { display: none; }
