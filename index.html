@@ -8,7 +8,7 @@
 <meta property="og:title" content="SelaamPeter · Get paid Rand to post reviews">
 <meta property="og:description" content="Take an order, post your review on a partner blog, collect Rand. 100 R welcome bonus.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%2313392C'/%3E%3Cpath d='M7 9h18v11H15l-5 4v-4H7z' fill='%23D8F36A'/%3E%3Cpath d='M12 13.5h8M12 16.5h5' stroke='%2313392C' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230A0A0B'/%3E%3Cpath d='M7 9h18v11H15l-5 4v-4H7z' fill='%23D4F24A'/%3E%3Cpath d='M12 13.5h8M12 16.5h5' stroke='%230A0A0B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#FAFAFA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -476,6 +476,15 @@ em, .now, .logo i, .proof b em, .av, .steps li::before, .out .big small, .onb-am
 .sec-head h2 em { font-weight: 600; color: var(--dim); }
 .hero h1 .now, .closing h2 em, .sec-head h2 em, .proof b em, .logo i { font-weight: 600; font-style: normal; }
 .hero { overflow-x: clip; }
+/* hero headline: even rhythm, period hugs "now", slim lime marker */
+.hero h1 { line-height: 1.02; letter-spacing: -.045em; }
+.hero h1 .now { padding-inline: 0; background-position: 0 92%; }
+.hero h1 .now::after { position: absolute; top: .12em; right: -.16em; margin: 0; width: .11em; height: .11em; }
+@keyframes nowSweep { to { background-size: 100% .2em; } }
+.lede { line-height: 1.6; text-wrap: pretty; }
+.hero-row { margin-top: 32px; }
+@media (min-width: 960px) { .hero-row { margin-top: 44px; } }
+@media (prefers-reduced-motion: reduce) { .hero h1 .now { background-size: 100% .2em; } }
 .rates-sec .sec-head h2 em { color: rgba(250,250,250,.5); }
 .logo { font-weight: 650; letter-spacing: -.04em; font-size: 20px; }
 .logo i { font-weight: 650; color: var(--dim); }
