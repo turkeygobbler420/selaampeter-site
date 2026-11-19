@@ -108,7 +108,6 @@ svg { display: block; max-width: 100%; }
 .proof b { display: block; font: 600 27px/1 var(--serif); letter-spacing: -.02em; font-variation-settings: var(--soft), "opsz" 96; white-space: nowrap; }
 .proof b em { font-style: italic; color: var(--blue); }
 .proof span { display: block; margin-top: 8px; font-size: 12.5px; line-height: 1.35; color: var(--dim); }
-.stamp { display: none; }
 
 /* ---------- section scaffolding ---------- */
 section { padding: 72px 0; }
@@ -346,14 +345,8 @@ footer .logo { font-size: 20px; }
   .hero { padding-top: 72px; padding-bottom: 16px; }
   .b1 { width: 620px; height: 560px; top: -160px; right: -160px; }
   .b2 { width: 420px; height: 380px; top: 360px; left: -220px; }
-  .hero-top { display: grid; grid-template-columns: 1fr 200px; gap: 32px; align-items: start; }
+  .hero-top { display: grid; grid-template-columns: 1fr 304px; gap: 32px; align-items: start; }
   .hero h1 { max-width: 11ch; }
-  .stamp { display: block; width: 200px; height: 200px; margin-top: 16px; filter: drop-shadow(0 20px 30px rgba(47,75,255,.35)); }
-  .stamp .ring { fill: var(--blue); }
-  .stamp .spin { transform-origin: 100px 100px; animation: spin 26s linear infinite; }
-  .stamp .ring-t { fill: #fff; font: 600 12.5px var(--sans); letter-spacing: .2em; }
-  .stamp .amt { fill: var(--yel); font: 600 46px var(--serif); font-variation-settings: "SOFT" 100; }
-  .stamp .amt-s { fill: #fff; font: 600 11px var(--sans); letter-spacing: .18em; }
   .hero-row { grid-template-columns: 1fr auto; align-items: end; gap: 48px; margin-top: 40px; }
   .lede { font-size: 21px; }
   .proof { grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
@@ -652,13 +645,7 @@ details[open] summary::after { background: var(--ink); color: #fff; }
 .mbar { background: rgba(255,255,255,.8); border-radius: 20px; padding: 6px; box-shadow: var(--e3); }
 .mbar .btn { border-radius: 14px; }
 
-/* stamp: ink seal */
 @media (min-width: 960px) {
-  .stamp { filter: drop-shadow(0 24px 30px rgba(47,75,255,.35)); }
-  .stamp .ring { fill: var(--ink); }
-  .stamp .ring-t { fill: rgba(255,255,255,.85); font-family: var(--mono); font-weight: 500; letter-spacing: .16em; }
-  .stamp .amt { fill: var(--yel); font-weight: 600; letter-spacing: -.04em; }
-  .stamp .amt-s { fill: #fff; font-family: var(--mono); font-weight: 500; }
   .rates-sec, .closing { border-radius: 32px; }
   .win { border-radius: 26px; padding: 8px; }
   .job h3 { font-size: 19px; }
@@ -676,6 +663,32 @@ details[open] summary::after { background: var(--ink); color: #fff; }
   .job.mine:hover { box-shadow: 0 0 0 1.5px var(--blue), 0 14px 30px -12px rgba(47,75,255,.55); }
   .rate:hover { transform: translateY(-2px); }
   .receipt { transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+}
+/* 100 R voucher: floating ink ticket with lime stub */
+.voucher { --stub: 84px; display: block; width: min(100%, 330px); margin-top: 26px; color: #fff; text-decoration: none; filter: drop-shadow(0 18px 24px rgba(47,75,255,.28)) drop-shadow(0 2px 4px rgba(10,10,11,.18)); -webkit-tap-highlight-color: transparent; }
+.v-card { display: grid; grid-template-columns: 1fr var(--stub); background: var(--ink); border-radius: 18px; transform: rotate(-2deg); animation: vFloat 6s ease-in-out 1s infinite;
+  -webkit-mask: radial-gradient(circle 9px at calc(100% - var(--stub)) 0, #0000 98%, #000) top / 100% 51% no-repeat, radial-gradient(circle 9px at calc(100% - var(--stub)) 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+          mask: radial-gradient(circle 9px at calc(100% - var(--stub)) 0, #0000 98%, #000) top / 100% 51% no-repeat, radial-gradient(circle 9px at calc(100% - var(--stub)) 100%, #0000 98%, #000) bottom / 100% 51% no-repeat; }
+.v-main { display: grid; gap: 4px; padding: 16px 18px 15px; background: radial-gradient(120% 90% at 0 0, rgba(47,75,255,.45), transparent 60%); }
+.v-label, .v-sub, .v-code { font: 500 10.5px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+.v-label { color: rgba(255,255,255,.62); }
+.v-amt { font: 600 44px/.95 var(--serif); letter-spacing: -.05em; color: var(--yel); }
+.v-amt small { font-size: .5em; margin-left: .14em; letter-spacing: 0; }
+.v-sub { color: rgba(255,255,255,.8); letter-spacing: .08em; }
+.v-stub { display: grid; align-content: space-between; justify-items: center; padding: 16px 8px 15px; background: var(--yel); color: var(--ink); border-left: 2px dashed rgba(10,10,11,.35); }
+.v-code { writing-mode: vertical-rl; transform: rotate(180deg); opacity: .7; letter-spacing: .2em; }
+.v-go { display: grid; justify-items: center; gap: 2px; font: 600 13px/1 var(--sans); }
+.v-go i { font-style: normal; font-size: 17px; transition: transform .3s var(--ease); }
+.voucher:hover .v-go i, .voucher:focus-visible .v-go i { transform: translateX(3px); }
+.voucher:focus-visible { outline: 3px solid var(--blue); outline-offset: 6px; border-radius: 20px; }
+@keyframes vFloat { 0%, 100% { transform: rotate(-2deg) translateY(0); } 50% { transform: rotate(-1deg) translateY(-6px); } }
+@media (min-width: 960px) {
+  .voucher { --stub: 86px; width: 304px; margin-top: 30px; }
+  .v-sub { white-space: nowrap; }
+  .v-card { transform: rotate(-5deg); animation-name: vFloatL; }
+  .v-main { padding: 22px 20px 20px; gap: 6px; }
+  .v-amt { font-size: 56px; }
+  @keyframes vFloatL { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(-3deg) translateY(-10px); } }
 }
 </style>
 </head>
@@ -711,13 +724,16 @@ details[open] summary::after { background: var(--ink); color: #fff; }
       <p class="kicker rise" style="--i:0"><span class="pulse" aria-hidden="true"></span>Now taking on reviewers</p>
       <h1 class="rise" style="--i:1">Get paid for your reviews <span class="now">right now</span>.</h1>
     </div>
-    <svg class="stamp rise" style="--i:3" viewBox="0 0 200 200" aria-hidden="true">
-      <defs><path id="circ" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
-      <circle class="ring" cx="100" cy="100" r="98"/>
-      <g class="spin"><text class="ring-t"><textPath href="#circ" textLength="496" lengthAdjust="spacing">SIGN-UP BONUS · FREE TO JOIN · NO DEPOSIT ·</textPath></text></g>
-      <text class="amt" x="100" y="112" text-anchor="middle">100 R</text>
-      <text class="amt-s" x="100" y="134" text-anchor="middle">ON JOINING</text>
-    </svg>
+    <a class="voucher rise" style="--i:3" href="#start" aria-label="Claim your 100 R sign-up bonus">
+      <span class="v-card">
+        <span class="v-main">
+          <span class="v-label">Sign-up voucher</span>
+          <span class="v-amt">100<small>R</small></span>
+          <span class="v-sub">Free to join · No deposit</span>
+        </span>
+        <span class="v-stub"><span class="v-code">SP-100</span><span class="v-go">Claim<i aria-hidden="true">→</i></span></span>
+      </span>
+    </a>
   </div>
   <div class="hero-row">
     <p class="lede rise" style="--i:2">Businesses pay us for reviews. We pay you Rand to post them on our partner blogs. <strong>The older your account, the more every review is worth.</strong></p>
