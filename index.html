@@ -665,6 +665,44 @@ body:has(.onb[open]) { overflow: hidden; }
 .proof li + li { border-left: 1px solid var(--line); }
 @keyframes pcIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .pc-list li:first-child, .pc-live i { animation: none !important; } }
+/* ---------- Design pass (taste / frontend-design / unslop) ----------
+   Sentence-case labels in the sans face, two weights, 4px rhythm, hairline borders,
+   one radius scale (controls 12, cards 20, panels 28), one lift on hover. */
+.eyebrow, .kicker, .signals h3, .stats-note, thead th, .sku, .field label, .pc-h, .pc-f, td::before, tbody th, fieldset.checks legend, .pill, .tag, .live {
+  font-family: var(--sans); text-transform: none; letter-spacing: 0; font-weight: 500;
+}
+.eyebrow { font-size: 14px; color: var(--amber-ink); }
+.kicker { font-size: 13px; }
+.pill, .tag { font-size: 12px; padding: 6px 10px; border-radius: 999px; }
+.pc-h, .pc-f { font-size: 13px; }
+.field label { font-size: 14px; color: var(--muted); }
+thead th { font-size: 13px; }
+h1, h2, h3 { font-weight: 600; }
+h1 { letter-spacing: -0.04em; }
+.head { max-width: 640px; margin-bottom: clamp(40px, 5vw, 64px); }
+.head h2 { margin-top: 12px; font-size: clamp(32px, 4.2vw, 52px); letter-spacing: -0.035em; line-height: 1.08; }
+.head p { margin-top: 16px; font-size: 18px; line-height: 1.55; }
+section { padding-block: clamp(64px, 9vw, 112px); }
+.card { border-radius: 20px; }
+.card h3 { font-weight: 600; }
+.ico { border-radius: 12px; }
+.btn { border-radius: 12px; font-weight: 600; }
+.btn-y { box-shadow: none !important; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: none; }
+.pack { border-radius: 24px; }
+.steps li { border-radius: 20px; }
+.win { border-radius: 28px; }
+.proof li { border-radius: 16px; }
+.job { border-radius: 12px; }
+.pcard { border-radius: 20px; }
+.card:hover { transform: translateY(-2px) !important; }
+@media (max-width: 640px) {
+  .card { padding: 24px; }
+  .pack { padding: 28px; }
+  .steps li { padding: 24px 48px 24px 24px; }
+  .head h2 { font-size: 32px; }
+}
 @keyframes nowSweep { to { background-size: 100% 0.36em; } }
 @keyframes nowPulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
 @media (prefers-reduced-motion: reduce) { .now, .now::after { animation: none !important; } .now { background-size: 100% 0.36em; } }
@@ -755,7 +793,7 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <section id="how"><div class="wrap">
   <div class="head">
-    <span class="eyebrow"><b>01</b> // How it works</span>
+    <span class="eyebrow">How it works</span>
     <h2>Start Earning in Three Steps</h2>
     <p>No experience needed. Join in a minute, pick an order you like, and get paid the moment you post.</p>
   </div>
@@ -774,7 +812,7 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <section id="blogs" class="band"><div class="wrap">
   <div class="head">
-    <span class="eyebrow"><b>02</b> // Review blogs</span>
+    <span class="eyebrow">Review blogs</span>
     <h2>Pick the Orders That Pay Best</h2>
     <p>Five partner blogs, one order board. Choose the topics you know and aim for the blogs that pay the most.</p>
   </div>
@@ -801,7 +839,7 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <section id="tiers"><div class="wrap">
   <div class="head">
-    <span class="eyebrow"><b>03</b> // Account age</span>
+    <span class="eyebrow">Account age</span>
     <h2>Your Account Age Is Worth Money</h2>
     <p>The older your account, the more every order pays. Join once and your boost applies to every review you post.</p>
   </div>
@@ -836,7 +874,7 @@ body:has(.onb[open]) { overflow: hidden; }
 <section id="calc" class="band"><div class="wrap">
   <div class="split">
     <div class="head">
-      <span class="eyebrow"><b>04</b> // Earnings calculator</span>
+      <span class="eyebrow">Earnings calculator</span>
       <h2>See What You Could Earn</h2>
       <p>Slide to the reviews you could post in a week, pick your account age, and watch the Rand add up. Based on the average order of 62 R.</p>
       <p><a class="btn btn-y" href="#start">Start Earning Now</a></p>
@@ -851,7 +889,7 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <section id="players"><div class="wrap">
   <div class="head">
-    <span class="eyebrow"><b>05</b> // Players</span>
+    <span class="eyebrow">Players</span>
     <h2>Players Are Already Getting Paid</h2>
     <p>Your name could be on this list next.</p>
   </div>
@@ -862,7 +900,7 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <section id="compare" class="band"><div class="wrap">
   <div class="head">
-    <span class="eyebrow"><b>06</b> // Compare</span>
+    <span class="eyebrow">Compare</span>
     <h2>Why Post With Us Instead of for Free</h2>
     <p>You could post reviews for nothing. Or you could be paid for the same few lines.</p>
   </div>
@@ -881,7 +919,7 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <section id="faq"><div class="wrap split">
   <div class="head">
-    <span class="eyebrow"><b>07</b> // FAQ</span>
+    <span class="eyebrow">FAQ</span>
     <h2>Questions Players Ask</h2>
     <p>Still unsure? It is free, takes a minute, and your first 100 R is on us. <a href="#start">Join now</a>.</p>
   </div>
@@ -899,7 +937,7 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <section class="closing" id="start"><div class="wrap">
   <div>
-    <span class="eyebrow"><b>08</b> // Join</span>
+    <span class="eyebrow">Join</span>
     <h2>Your First 100 R Is Waiting</h2>
     <p class="sub">Join in under a minute. Enter your username and account year, and we add 100 R to your wallet and open the order board. No fee, no deposit.</p>
   </div>
@@ -1098,7 +1136,7 @@ body:has(.onb[open]) { overflow: hidden; }
     var v = +yr.value, t = $("#jTier");
     if (!v) { t.className = "tierprev"; t.textContent = "Your tier shows here once you pick a year."; return; }
     var a = NOW - v, k = RANKS[tierFor(a)];
-    t.className = "tierprev on"; t.textContent = "Account age " + a + " yr" + (a === 1 ? "" : "s") + " → " + k.n + " · " + k.m + "× pay on every order.";
+    t.className = "tierprev on"; t.textContent = "Account age " + a + " yr" + (a === 1 ? "" : "s") + ": " + k.n + ", " + k.m + "× pay on every order.";
   }
   yr.addEventListener("change", tierPrev);
   if (S.user) {
