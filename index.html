@@ -49,11 +49,12 @@ img, svg { display: block; max-width: 100%; }
 
 /* ---------- buttons: pills. Forest on light, lime on dark ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 26px; border: 0; border-radius: 999px; font: 700 16px/1 var(--sans); text-decoration: none; cursor: pointer; max-width: 100%; text-align: center; transition: transform .15s var(--ease), background-color .15s, box-shadow .15s; -webkit-tap-highlight-color: transparent; }
-.btn-y { background: var(--forest); color: #fff; box-shadow: 0 10px 20px -10px rgba(29,23,96,.7); }
-.btn-y::after { content: "\2192"; display: grid; place-items: center; width: 26px; height: 26px; margin-right: -12px; border-radius: 50%; background: var(--lime); color: var(--forest); font-size: 15px; font-weight: 700; transition: transform .2s var(--ease); }
-.btn-y:hover { background: var(--forest-2); }
+.btn-y { background: var(--lime); color: var(--forest); box-shadow: inset 0 0 0 2px var(--forest), 4px 4px 0 var(--forest); }
+.btn-y::after { content: "\2192"; display: grid; place-items: center; width: 32px; height: 32px; margin-right: -12px; border-radius: 50%; background: var(--forest); color: var(--lime); font-size: 18px; font-weight: 800; line-height: 1; transition: transform .2s var(--ease); }
+.btn-y:hover { background: #D6FA8C; }
 .btn-y:hover::after { transform: translateX(3px); }
-.btn:active { transform: scale(.97); }
+.btn:active { transform: translate(2px,2px); }
+.btn-y:active { box-shadow: inset 0 0 0 2px var(--forest), 2px 2px 0 var(--forest); }
 .btn-line { background: #fff; color: var(--forest); box-shadow: inset 0 0 0 1.5px var(--line-strong); }
 .btn-line:hover { box-shadow: inset 0 0 0 1.5px var(--forest); }
 .btn-small { min-height: 42px; padding: 0 18px; font-size: 14px; }
@@ -61,9 +62,8 @@ img, svg { display: block; max-width: 100%; }
 .btn:disabled { opacity: .5; pointer-events: none; }
 .icon-btn { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); border-radius: 50%; color: #fff; cursor: pointer; }
 .icon-btn svg { width: 22px; height: 22px; }
-.nav .btn-y, .hero .cta .btn-y { background: var(--lime); color: var(--forest); box-shadow: 0 10px 24px -10px rgba(198,243,107,.55); }
-.nav .btn-y:hover, .hero .cta .btn-y:hover { background: #D6FA8C; }
-.hero .cta .btn-y::after { background: var(--forest); color: var(--lime); }
+.nav .btn-y, .hero .cta .btn-y, .closing .btn-y, .sheet .btn { box-shadow: 0 5px 0 var(--lime-2); }
+
 
 /* ---------- nav ---------- */
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(29,23,96,.94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.08); color: #fff; }
@@ -81,8 +81,7 @@ img, svg { display: block; max-width: 100%; }
 .sheet nav { display: grid; }
 .sheet nav a { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.12); font: 600 18px/1 var(--head); text-decoration: none; }
 .sheet .wallet { justify-self: start; }
-.sheet .btn { width: 100%; background: var(--lime); color: var(--forest); }
-.sheet .btn::after { background: var(--forest); color: var(--lime); }
+.sheet .btn { width: 100%; }
 
 /* ---------- hero ---------- */
 .hero { position: relative; padding: 36px 0 52px; background: radial-gradient(120% 60% at 90% 0%, #3A2EA8 0%, transparent 60%), #1D1760; color: #fff; border-radius: 0 0 36px 36px; overflow: hidden; }
@@ -128,6 +127,9 @@ img, svg { display: block; max-width: 100%; }
 .acts .btn-line { background: #1D1760; color: #fff; box-shadow: none; }
 .acts .btn-line:hover { background: #2B22A0; }
 .acts .btn-y::after { display: none; }
+.acts .btn-y, .nav .btn-small { box-shadow: inset 0 0 0 2px var(--forest), 2px 2px 0 var(--forest); }
+.nav .btn-small { box-shadow: 0 3px 0 var(--lime-2); }
+.job.mine .acts .btn-y { box-shadow: 0 3px 0 var(--lime-2); }
 .job.mine { background: #1D1760; color: #fff; }
 .job.mine .meta { color: rgba(255,255,255,.7); }
 .job.mine .acts .btn-line { background: #fff; color: #1D1760; }
@@ -246,8 +248,6 @@ details p { padding: 0 52px 20px 18px; color: var(--muted); }
 .closing .wrap::after { content: ""; position: absolute; right: -70px; top: -70px; width: 220px; height: 220px; border-radius: 50%; box-shadow: 0 0 0 26px rgba(198,243,107,.06), 0 0 0 52px rgba(198,243,107,.04); pointer-events: none; }
 .closing .wrap > * { position: relative; z-index: 1; }
 .closing .sub { margin-top: 10px; font-size: 17px; color: rgba(255,255,255,.78); }
-.closing .btn-y { background: var(--lime); color: var(--forest); }
-.closing .btn-y::after { background: var(--forest); color: var(--lime); }
 .closing .btn { width: 100%; min-height: 58px; font-size: 17px; }
 
 /* ---------- dialog ---------- */
@@ -290,7 +290,7 @@ footer .wrap { display: grid; gap: 14px; justify-items: start; }
 #resetBtn { padding: 10px 18px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); border-radius: 999px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; }
 .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(to top, var(--bg) 62%, rgba(248,246,236,0)); transition: transform .3s var(--ease), opacity .3s; }
 .mbar.away { transform: translateY(110%); opacity: 0; pointer-events: none; }
-.mbar .btn { width: 100%; min-height: 58px; font-size: 17px; box-shadow: 0 14px 26px -10px rgba(29,23,96,.75); }
+.mbar .btn { width: 100%; min-height: 58px; font-size: 17px; }
 
 /* ---------- motion ---------- */
 @keyframes nowSweep { to { background-size: 100% 0.3em; } }
