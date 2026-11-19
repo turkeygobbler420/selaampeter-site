@@ -43,7 +43,7 @@ a { color: inherit; }
 button, input, select { font: inherit; color: inherit; }
 em { font-style: normal; }
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 8px; }
-.wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: 16px; }
+.wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: 20px; }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; transition: top .2s; }
 .skip:focus { top: 12px; }
 .label { display: inline-flex; align-items: center; gap: 8px; font: 500 11.5px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
@@ -89,25 +89,25 @@ em { font-style: normal; }
 
 /* ---------- hero: one soft panel ---------- */
 .hero { padding: 14px 8px 0; }
-.hero > .wrap { position: relative; overflow: hidden; padding: 36px 18px 18px; border-radius: 32px; background:
+.hero > .wrap { position: relative; overflow: hidden; padding: 48px 22px 26px; border-radius: 32px; background:
   radial-gradient(90% 60% at 100% 0%, rgba(47,75,255,.16), transparent 60%),
   radial-gradient(70% 50% at 0% 100%, rgba(212,242,74,.28), transparent 60%),
   linear-gradient(180deg, #FFFFFF, #F7F8FF); box-shadow: var(--e1); }
 .blob { display: none; }
-.hero-top { display: grid; gap: 26px; }
+.hero-top { display: grid; gap: 40px; }
 .kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 18px; padding: 7px 14px 7px 10px; border-radius: 999px; background: #fff; box-shadow: var(--e1); font-size: 13px; font-weight: 550; color: var(--muted); }
 .pulse { position: relative; display: inline-block; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
 .pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--blue); animation: ping 1.8s var(--ease) infinite; }
 .hero h1 { font-size: clamp(42px, 12vw, 88px); line-height: .98; font-weight: 650; letter-spacing: -.05em; text-wrap: balance; }
 .now { position: relative; white-space: nowrap; color: var(--blue); background: linear-gradient(var(--yel), var(--yel)) no-repeat 0 90% / 0% .22em; animation: nowSweep 1s var(--ease) .9s forwards; }
 .now::after { content: ""; position: absolute; top: .1em; right: -.22em; width: .13em; height: .13em; border-radius: 50%; background: var(--blue); animation: nowPulse 1.6s ease-in-out infinite; }
-.hero-row { display: grid; gap: 22px; margin-top: 26px; }
+.hero-row { display: grid; gap: 28px; margin-top: 32px; }
 .lede { max-width: 34em; font-size: 17px; line-height: 1.6; color: var(--muted); }
 .lede strong { color: var(--ink); font-weight: 600; }
 .cta { display: grid; gap: 10px; justify-items: start; }
 .cta .btn { width: 100%; }
 .micro { font-size: 13px; color: var(--dim); }
-.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 30px; }
+.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 44px; }
 .proof li { display: grid; gap: 4px; align-content: start; padding: 14px 12px; border-radius: var(--r-md); background: rgba(255,255,255,.85); box-shadow: var(--e1); }
 .proof b { font-size: clamp(22px, 6vw, 34px); line-height: 1; font-weight: 650; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
 .proof b em { color: var(--blue); }
@@ -133,8 +133,8 @@ em { font-style: normal; }
 .voucher:focus-visible .v-card { box-shadow: 0 0 0 3px var(--ink); }
 
 /* ---------- sections ---------- */
-main section { padding: 72px 0 0; }
-.sec-head { display: grid; gap: 14px; max-width: 640px; margin-bottom: 28px; }
+main section { padding: 104px 0 0; }
+.sec-head { display: grid; gap: 18px; max-width: 640px; margin-bottom: 40px; }
 .sec-head .label { justify-self: start; padding: 7px 12px; border-radius: 999px; background: #fff; box-shadow: var(--e1); color: var(--muted); }
 .sec-head .label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
 h2 { font-size: clamp(32px, 8vw, 54px); line-height: 1.02; font-weight: 650; letter-spacing: -.045em; text-wrap: balance; }
@@ -143,19 +143,19 @@ h2 em { color: var(--blue); }
 .card, .win, .desk, .steps li, .rate, .receipt, .faq details { background: var(--card); border-radius: var(--r-lg); box-shadow: var(--e1); }
 
 /* orders board */
-.board-grid { display: grid; gap: 12px; }
-.win { padding: 10px; box-shadow: var(--e2); }
+.board-grid { display: grid; gap: 20px; }
+.win { padding: 14px; box-shadow: var(--e2); }
 .win-head { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; padding: 10px 8px 12px; }
 .win-title { font-size: 19px; font-weight: 650; letter-spacing: -.02em; }
 .live { display: inline-flex; align-items: center; gap: 8px; padding: 6px 11px; border-radius: 999px; background: var(--blue-soft); font: 600 12px/1 var(--sans); color: var(--blue); }
 .win-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 10px; padding: 4px; border-radius: var(--r-md); background: linear-gradient(135deg, var(--blue-soft) 0%, #F6F8FF 55%, var(--yel-soft) 100%); color: var(--ink); box-shadow: inset 0 0 0 1px rgba(47,75,255,.12); }
-.win-stats div { display: grid; gap: 4px; padding: 12px 10px; }
+.win-stats div { display: grid; gap: 4px; padding: 16px 12px; }
 .win-stats div + div { border-left: 1px solid rgba(47,75,255,.12); }
 .win-stats b { font-size: 20px; line-height: 1; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .win-stats div:first-child b { color: var(--blue); }
 .win-stats span { font: 500 10px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: rgba(10,10,11,.5); }
-.jobs { display: grid; gap: 8px; }
-.job { display: grid; grid-template-columns: 44px 1fr auto; align-items: start; gap: 12px; padding: 14px 14px 12px; border-radius: var(--r-md); background: #fff; box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow .3s var(--ease), transform .3s var(--ease); }
+.jobs { display: grid; gap: 14px; }
+.job { display: grid; grid-template-columns: 44px 1fr auto; align-items: start; gap: 16px; padding: 20px 18px 18px; border-radius: var(--r-md); background: #fff; box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow .3s var(--ease), transform .3s var(--ease); }
 .job:hover { box-shadow: inset 0 0 0 1px rgba(47,75,255,.25), 0 14px 30px -18px rgba(10,10,11,.35); transform: translateY(-1px); }
 .job.mine { background: var(--yel-soft); box-shadow: inset 0 0 0 1.5px rgba(150,180,20,.5); }
 .av { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--blue-soft); font-weight: 700; font-size: 18px; color: var(--blue); }
@@ -165,7 +165,7 @@ h2 em { color: var(--blue); }
 .jb { min-width: 0; padding-top: 1px; }
 .jb h3 { font-size: 16px; line-height: 1.25; font-weight: 650; letter-spacing: -.015em; }
 .meta { margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--dim); }
-.tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .tags span { padding: 4px 8px; border-radius: 999px; background: var(--paper); font-size: 11.5px; font-weight: 500; line-height: 1.2; color: var(--muted); white-space: nowrap; }
 .job.mine .tags span { background: rgba(255,255,255,.7); }
 .tags .hot { background: #FDECEA; color: var(--bad); }
@@ -187,7 +187,7 @@ h2 em { color: var(--blue); }
 .msg.good, .msg.bad { margin: 8px 4px 4px; padding: 11px 14px; border-radius: var(--r-sm); }
 .msg.good { background: var(--yel-soft); color: #3A4A00; }
 .msg.bad { background: #FDECEA; color: var(--bad); }
-.desk { display: grid; gap: 10px; align-content: start; padding: 22px; background: linear-gradient(180deg, var(--blue-soft), #fff 80%); }
+.desk { display: grid; gap: 14px; align-content: start; padding: 26px; background: linear-gradient(180deg, var(--blue-soft), #fff 80%); }
 .rank-name { font-size: 24px; line-height: 1.15; font-weight: 650; letter-spacing: -.03em; }
 #rankSub { font-size: 14.5px; color: var(--muted); }
 #rankSub a { color: var(--blue); font-weight: 600; }
@@ -199,8 +199,8 @@ h2 em { color: var(--blue); }
 .slots[data-n="1"] i:nth-child(-n+1), .slots[data-n="2"] i:nth-child(-n+2), .slots[data-n="3"] i { background: var(--blue); }
 
 /* steps: bento */
-.steps { display: grid; gap: 12px; counter-reset: st; }
-.steps li { position: relative; display: grid; gap: 8px; padding: 22px; counter-increment: st; }
+.steps { display: grid; gap: 18px; counter-reset: st; }
+.steps li { position: relative; display: grid; gap: 10px; padding: 28px; counter-increment: st; }
 .steps li::before { content: "0" counter(st); display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 10px; border-radius: 14px; background: var(--blue-soft); font: 600 14px/1 var(--mono); color: var(--blue); }
 .steps li:first-child::before { background: var(--yel); color: var(--ink); }
 .steps h3 { font-size: 20px; font-weight: 650; letter-spacing: -.02em; }
@@ -208,8 +208,8 @@ h2 em { color: var(--blue); }
 .note { display: inline-block; margin-top: 12px; padding: 6px 12px; border-radius: 999px; background: var(--yel-soft); font-size: 13px; font-weight: 600; color: #3A4A00; }
 
 /* rates */
-.rates { display: grid; gap: 12px; }
-.rate { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; padding: 22px; }
+.rates { display: grid; gap: 18px; }
+.rate { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; padding: 28px; }
 .rate h3 { font-size: 20px; font-weight: 650; letter-spacing: -.02em; }
 .rate .age { grid-column: 1; font-size: 14px; color: var(--dim); }
 .rate .mult { grid-column: 2; grid-row: 1 / span 2; align-self: start; padding: 8px 12px; border-radius: 14px; background: var(--paper); font: 650 20px/1 var(--sans); letter-spacing: -.03em; }
@@ -220,13 +220,13 @@ h2 em { color: var(--blue); }
 .rate.pop { box-shadow: 0 0 0 2px var(--blue), 0 22px 44px -20px rgba(47,75,255,.45); }
 .rate.pop::before { content: "Most common"; position: absolute; top: -11px; left: 22px; padding: 5px 10px; border-radius: 999px; background: var(--blue); font: 600 11px/1 var(--sans); color: #fff; }
 .rate.pop .mult { background: var(--yel); }
-.rates-foot { display: grid; gap: 14px; margin-top: 16px; padding: 20px; border-radius: var(--r-lg); background: var(--paper-2); }
+.rates-foot { display: grid; gap: 18px; margin-top: 24px; padding: 24px; border-radius: var(--r-lg); background: var(--paper-2); }
 .rates-foot p { font-size: 15px; color: var(--muted); }
 .rates-foot .btn { justify-self: start; }
 
 /* calculator */
 .split { display: grid; gap: 4px; }
-.receipt { display: grid; gap: 22px; padding: 22px; }
+.receipt { display: grid; gap: 28px; padding: 28px; }
 .receipt-top { display: flex; justify-content: space-between; }
 .field { display: grid; gap: 10px; }
 .field label, .flabel { display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; }
@@ -239,24 +239,24 @@ input.range::-moz-range-thumb { width: 26px; height: 26px; border: 0; border-rad
 .chip b { font-size: 17px; font-weight: 650; color: var(--ink); }
 .chip[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: var(--e1); }
 .chip[aria-pressed="true"] b { color: var(--blue); }
-.out { display: grid; gap: 6px; padding: 20px; border-radius: var(--r-md); background: linear-gradient(135deg, var(--blue-soft), var(--yel-soft)); }
+.out { display: grid; gap: 8px; padding: 24px; border-radius: var(--r-md); background: linear-gradient(135deg, var(--blue-soft), var(--yel-soft)); }
 .k { font-size: 13px; color: var(--muted); }
 .big { font-size: clamp(46px, 13vw, 64px); line-height: 1; font-weight: 650; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
 .big small { margin-left: 4px; font-size: .45em; color: var(--blue); letter-spacing: 0; }
 
 /* faq */
-.faq { display: grid; gap: 8px; }
+.faq { display: grid; gap: 12px; }
 .faq details { border-radius: var(--r-md); transition: box-shadow .25s; }
 .faq details[open] { box-shadow: var(--e2); }
-.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 20px; font-size: 16px; font-weight: 600; cursor: pointer; list-style: none; }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 24px; font-size: 16px; font-weight: 600; cursor: pointer; list-style: none; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: "+"; display: grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--paper-2); font-size: 18px; font-weight: 500; transition: transform .3s var(--ease), background .3s; }
 .faq details[open] summary::after { transform: rotate(45deg); background: var(--yel); }
-.faq details p { padding: 0 20px 20px; font-size: 15px; color: var(--muted); }
+.faq details p { padding: 0 24px 24px; font-size: 15px; color: var(--muted); }
 
 /* closing panel */
-.closing { padding-bottom: 72px; }
-.closing .wrap { display: grid; gap: 24px; width: calc(100% - 16px); padding: 40px 22px; border-radius: 32px; color: #fff; background:
+.closing { padding-bottom: 104px; }
+.closing .wrap { display: grid; gap: 32px; width: calc(100% - 16px); padding: 52px 26px; border-radius: 32px; color: #fff; background:
   radial-gradient(80% 90% at 100% 100%, rgba(212,242,74,.35), transparent 55%),
   radial-gradient(70% 80% at 0% 0%, rgba(255,255,255,.18), transparent 60%), var(--blue); box-shadow: 0 30px 60px -28px rgba(47,75,255,.6); }
 .closing .label { color: rgba(255,255,255,.75); margin-bottom: 14px; }
@@ -309,55 +309,60 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
 .ticket a { display: inline-block; margin-top: 6px; font-weight: 650; color: var(--blue); text-decoration: none; }
 
 /* ---------- tablet + desktop ---------- */
+@media (max-width: 399px) {
+  .job { grid-template-columns: 44px 1fr; }
+  .job .pay { grid-column: 2; justify-self: start; }
+}
 @media (min-width: 560px) {
   .wallet { display: inline-flex; }
   .cta .btn, .closing .btn { width: auto; }
-  .hero > .wrap { padding: 48px 32px 28px; }
+  .hero > .wrap { padding: 64px 40px 36px; }
   .proof li { padding: 18px 16px; }
 }
 @media (min-width: 720px) {
   .wrap { padding-inline: 24px; }
   .hide-s { display: inline; }
-  .job { grid-template-columns: 48px 1fr auto auto; align-items: center; gap: 16px; padding: 16px 16px 16px 16px; }
+  .job { grid-template-columns: 48px 1fr auto auto; align-items: center; gap: 20px; padding: 22px 22px 22px 20px; }
   .av { width: 48px; height: 48px; font-size: 20px; }
   .pay { min-width: 112px; padding: 12px 14px 11px 20px; }
   .pay b { font-size: 32px; }
   .acts { grid-column: auto; }
   .acts .btn { flex: none; }
   .win-stats b { font-size: 26px; }
-  .win-stats div { padding: 14px 16px; }
-  .steps, .rates { grid-template-columns: repeat(3, 1fr); }
+  .win-stats div { padding: 18px 20px; }
+  .win { padding: 18px; }
+  .steps, .rates { grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .steps li:first-child { background: linear-gradient(180deg, var(--yel-soft), #fff 70%); }
-  .rates-foot { grid-template-columns: 1fr auto; align-items: center; padding: 20px 24px; }
-  .closing .wrap { padding: 56px 44px; }
+  .rates-foot { grid-template-columns: 1fr auto; align-items: center; padding: 26px 32px; }
+  .closing .wrap { padding: 68px 52px; }
 }
 @media (min-width: 960px) {
-  main section { padding-top: 112px; }
+  main section { padding-top: 136px; }
   .links { display: flex; gap: 2px; }
   .links a { padding: 9px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: background .2s, color .2s; }
   .links a:hover { background: var(--paper-2); color: var(--ink); }
   .menu-btn { display: none; }
   .nav .wrap { padding-left: 18px; width: calc(100% - 32px); }
   .hero { padding: 16px 16px 0; }
-  .hero > .wrap { padding: 72px 56px 40px; }
+  .hero > .wrap { padding: 96px 72px 56px; }
   .hero-top { grid-template-columns: 1fr 280px; align-items: center; gap: 48px; }
-  .hero-row { grid-template-columns: 1fr auto; align-items: end; gap: 48px; margin-top: 36px; }
+  .hero-row { grid-template-columns: 1fr auto; align-items: end; gap: 48px; margin-top: 44px; }
   .cta { justify-items: end; }
-  .proof { gap: 12px; margin-top: 48px; }
+  .proof { gap: 16px; margin-top: 64px; }
   .proof li { padding: 22px; }
   .proof span { font-size: 14px; }
   .voucher { --stub: 92px; width: 280px; }
   .v-card { transform: rotate(-5deg); animation-name: vFloatL; }
   .v-main { padding: 22px 20px 20px; gap: 6px; }
   .v-amt { font-size: 58px; }
-  .sec-head { margin-bottom: 40px; }
-  .board-grid { grid-template-columns: 1fr 320px; align-items: start; gap: 16px; }
+  .sec-head { margin-bottom: 56px; }
+  .board-grid { grid-template-columns: 1fr 320px; align-items: start; gap: 24px; }
   .desk { position: sticky; top: 96px; padding: 28px; }
-  .steps li, .rate, .receipt { padding: 30px; }
-  .split { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+  .steps li, .rate, .receipt { padding: 36px; }
+  .split { grid-template-columns: 5fr 7fr; gap: 96px; align-items: start; }
   .split .sec-head { position: sticky; top: 110px; }
-  .closing { padding-bottom: 96px; }
-  .closing .wrap { grid-template-columns: 1fr auto; align-items: end; padding: 72px 64px; width: calc(100% - 32px); }
+  .closing { padding-bottom: 128px; }
+  .closing .wrap { grid-template-columns: 1fr auto; align-items: end; padding: 88px 72px; width: calc(100% - 32px); }
   footer { padding-bottom: 40px; }
   .mbar { display: none; }
 }
@@ -384,7 +389,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="edition"><div class="wrap"><span id="edDate">Today's edition</span><span class="hide-s">Partner blogs · Paid in Rand</span><span>Orders open</span></div></div>
+<div class="edition"><div class="wrap"><span id="edDate">Today's edition</span><span>Orders open</span></div></div>
 
 <header class="nav"><div class="wrap">
   <a class="logo" href="#top" translate="no" aria-label="SelaamPeter home">
@@ -418,23 +423,23 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
         <span class="v-main">
           <span class="v-label">Sign-up voucher</span>
           <span class="v-amt">100<small>R</small></span>
-          <span class="v-sub">Free to join · No deposit</span>
+          <span class="v-sub">No deposit</span>
         </span>
         <span class="v-stub"><span class="v-code">SP-100</span><span class="v-go">Claim<i aria-hidden="true">→</i></span></span>
       </span>
     </a>
   </div>
   <div class="hero-row">
-    <p class="lede rise" style="--i:2">Businesses pay us for reviews. We pay you Rand to post them on our partner blogs. <strong>The older your account, the more every review is worth.</strong></p>
+    <p class="lede rise" style="--i:2">Businesses pay us for reviews. We pay you Rand to post them. <strong>The older your account, the more each one pays.</strong></p>
     <div class="cta rise" style="--i:3">
       <a class="btn btn-y btn-xl" id="heroCta" href="#start">Claim my 100 R</a>
-      <p class="micro">Free · One minute · No deposit</p>
+      <p class="micro">Free · No deposit</p>
     </div>
   </div>
   <ul class="proof rise" style="--i:4">
-    <li><b>45–95</b><span>R base pay per review</span></li>
-    <li><b><em>2×</em></b><span>for accounts 3+ years old</span></li>
-    <li><b>100</b><span>R bonus when you join</span></li>
+    <li><b>45–95</b><span>R base pay</span></li>
+    <li><b><em>2×</em></b><span>for 3+ year accounts</span></li>
+    <li><b>100</b><span>R sign-up bonus</span></li>
     <li class="wide" style="display:none"><b>1s</b><span>From post to payout</span></li>
   </ul>
 </div></div>
@@ -443,11 +448,11 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   <div class="sec-head">
     <span class="label">Orders board</span>
     <h2 id="ordT">Today's open <em>orders.</em></h2>
-    <p>Real businesses, real partner blogs. Take up to three at a time. Every order shows exactly what it pays at your rate.</p>
+    <p>Take up to three at a time.</p>
   </div>
   <div class="board-grid">
     <div class="win" id="tasks">
-      <div class="win-head"><span class="win-title">Open orders</span><span class="live"><span class="pulse" aria-hidden="true"></span>Live · updated just now</span></div>
+      <div class="win-head"><span class="win-title">Open orders</span><span class="live"><span class="pulse" aria-hidden="true"></span>Live</span></div>
       <div class="win-stats"><div><b id="openN">5</b><span>open now</span></div><div><b id="topPay">+95 R</b><span>top order</span></div><div><b id="paidToday">0 R</b><span>paid out today</span></div></div>
       <div class="jobs" id="jobs"></div>
       <div class="msg bad" id="msg" role="status"></div>
@@ -466,12 +471,11 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   <div class="sec-head">
     <span class="label">How it works</span>
     <h2>Three steps to your <em>first payout.</em></h2>
-    <p>No interviews, no waiting list. If you can write two honest sentences, you can start today.</p>
   </div>
   <ol class="steps">
-    <li><h3>Claim your bonus</h3><p>Enter your username and the year your account was made. 100 R lands in your wallet immediately.</p></li>
-    <li><h3>Take an order</h3><p>Pick up to three from the board. Each one shows the blog, the topic and your exact pay.</p></li>
-    <li><h3>Post and get paid</h3><p>Write a few lines on the partner blog. The Rand is yours the moment it goes live.<br><span class="note">+62 R avg. per review</span></p></li>
+    <li><h3>Claim your bonus</h3><p>Enter a username and your account year. 100 R lands instantly.</p></li>
+    <li><h3>Take an order</h3><p>Pick up to three. Each shows your exact pay.</p></li>
+    <li><h3>Post and get paid</h3><p>Write a few lines. Paid the moment it goes live.<br><span class="note">+62 R avg. per review</span></p></li>
   </ol>
 </div></section>
 
@@ -479,7 +483,6 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   <div class="sec-head">
     <span class="label">Pay rates</span>
     <h2>Older accounts <em>earn more.</em></h2>
-    <p>Partner blogs trust established reviewers, so your account age sets a multiplier on every single order.</p>
   </div>
   <ol class="rates">
     <li class="rate"><h3>Fresh</h3><span class="age">Under 1 year old</span><span class="range">45–95 R <span>per review</span></span><span class="mult">1×</span><span class="bar" aria-hidden="true"><i style="width:50%"></i></span></li>
@@ -487,7 +490,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
     <li class="rate"><h3>Veteran</h3><span class="age">3+ years old</span><span class="range">90–190 R <span>per review</span></span><span class="mult">2×</span><span class="bar" aria-hidden="true"><i style="width:100%"></i></span></li>
   </ol>
   <div class="rates-foot">
-    <p>Your tier is set automatically from the year your account was created. No forms, no proof.</p>
+    <p>Set automatically from your account year.</p>
     <a class="btn btn-y" href="#start">See my rate</a>
   </div>
 </div></section>
@@ -496,7 +499,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   <div class="sec-head">
     <span class="label">Calculator</span>
     <h2>What could you <em>earn?</em></h2>
-    <p>Set how many reviews you post a week and your account age. Based on an average order of 62 R.</p>
+    <p>Based on an average order of 62 R.</p>
   </div>
   <div class="receipt">
     <div class="receipt-top"><span class="label">Earnings estimate</span><span class="label">No. 0062</span></div>
@@ -512,11 +515,10 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
     <h2>Straight <em>answers.</em></h2>
   </div>
   <div class="faq">
-    <details><summary>What is SelaamPeter?</summary><p>An in-game review agency. Businesses buy reviews from us, and we pay players in Rand to post them on partner review blogs.</p></details>
-    <details><summary>Who can join?</summary><p>Any player. All you need is a username and the year your account was created.</p></details>
-    <details><summary>How much does a review pay?</summary><p>45 to 95 R base, depending on the blog. That is multiplied by your account age: 1×, 1.5× or 2×.</p></details>
-    <details><summary>When do I get paid?</summary><p>The moment your review is posted. The Rand goes straight into your wallet.</p></details>
-    <details><summary>Is this real money?</summary><p>No. Rand is the in-game currency and has no real-world value. SelaamPeter is a fictional site, and nothing leaves your browser.</p></details>
+    <details><summary>What is SelaamPeter?</summary><p>An in-game review agency. We pay players in Rand to post reviews on partner blogs.</p></details>
+    <details><summary>How much does a review pay?</summary><p>45 to 95 R base, times your account-age multiplier: 1×, 1.5× or 2×.</p></details>
+    <details><summary>When do I get paid?</summary><p>The moment your review is posted.</p></details>
+    <details><summary>Is this real money?</summary><p>No. Rand is in-game currency with no real-world value.</p></details>
   </div>
 </div></section>
 
@@ -524,7 +526,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   <div>
     <p class="label">Last call</p>
     <h2>Your <em>100 R</em> is waiting.</h2>
-    <p class="sub">Free forever. One minute to set up. Your first order could be paid before lunch.</p>
+    <p class="sub">Free. One minute. No deposit.</p>
   </div>
   <div><button class="btn btn-y btn-xl" type="button" data-onb>Claim my 100 R</button></div>
 </div></section>
@@ -537,7 +539,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
       <span class="onb-kicker">Welcome bonus · Admit one</span>
       <div class="onb-amt" aria-hidden="true">100<small>R</small></div>
       <h2 id="onbT">Claim your 100 R</h2>
-      <p class="sub">Two details and you are in. Free to join.</p>
+      <p class="sub">Two details and you are in.</p>
       <ul class="onb-perks"><li>Paid instantly</li><li>Up to 2× pay</li><li>No deposit</li></ul>
     </div>
     <form class="onb-form" id="joinForm" novalidate>
@@ -603,7 +605,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
     else a = '<button class="btn btn-line" type="button" data-claim="' + j.id + '"' + (full ? " disabled" : "") + ">Take order</button>";
     var m = RANKS[rankIdx()].m, how = m > 1 ? fmt(j.pay) + " R × " + m : S.user ? "Fresh rate" : "Base rate";
     return '<article class="job' + (q ? " mine" : "") + '" data-cat="' + esc(j.cat) + '"><span class="av" aria-hidden="true">' + esc(String(j.biz).charAt(0)) + '</span><div class="jb"><h3>' + esc(j.biz) + '</h3><div class="meta">' + esc(j.blog) + " · " + esc(j.topic) +
-      '</div><div class="tags"><span>' + esc(j.cat) + "</span><span>~" + j.words + " words</span><span>Due " + esc(j.due) + '</span><span class="' + (j.spots < 3 ? "hot" : "") + '">' + j.spots + (j.spots === 1 ? " spot" : " spots") + " left</span><span>" + j.ago + " min ago</span></div>" +
+      '</div><div class="tags"><span>' + esc(j.cat) + "</span><span>Due " + esc(j.due) + '</span><span class="' + (j.spots < 3 ? "hot" : "") + '">' + j.spots + (j.spots === 1 ? " spot" : " spots") + " left</span></div>" +
       '</div><span class="pay"><small>You earn</small><b>+' + fmt(pay(j)) + ' R</b><em>' + how + '</em></span><div class="acts">' + a + "</div></article>";
   }
 
