@@ -835,6 +835,37 @@ details p { padding-left: 30px !important; font-weight: 600; }
 footer { color: var(--muted); font-weight: 600; }
 #resetBtn { border-radius: 999px !important; background: #fff; border: 2px solid var(--line-strong); padding: 8px 16px; font-weight: 700; }
 .msg { border-radius: 16px !important; }
+/* ---------- Business tone: one accent (amber) on neutrals ---------- */
+:root, :root[data-theme="light"] {
+  --bg: #FAF8F4; --bg-1: #F3EFE7; --surface-2: #F3EFE7;
+  --peach: #FFFFFF; --mint: #FFFFFF; --lilac: #FFFFFF; --sky: #FFFFFF; --butter: #FFF4D1;
+  --ink: #231B12;
+  --pop: 0 1px 0 rgba(35,27,18,.04), 0 14px 28px -20px rgba(35,27,18,.28);
+}
+h1, h2, h3, .logo, .price, .big, .rank-name, .proof li b, .ord-held b, .pay, .btn, .btn-y, .btn-line, summary, .closing h2, .closing .sub { font-family: "Nunito", var(--sans) !important; }
+h1, h2, h3 { font-weight: 800 !important; letter-spacing: -0.02em !important; }
+.hero::before { background: radial-gradient(circle at 92% 6%, var(--butter) 0 170px, transparent 171px) !important; }
+.proof li:nth-child(n) { background: #fff !important; }
+.proof li + li { border-left: 1px solid var(--line) !important; }
+.ord .job:nth-child(n) { background: var(--bg) !important; border: 1px solid var(--line) !important; }
+.ord .job.mine { border-color: var(--amber) !important; background: var(--butter) !important; }
+.ord .job .pay { background: #fff !important; }
+.live { background: var(--bg-1); }
+.steps li.card:nth-child(n) { background: #fff !important; }
+.steps li.card::before { background: var(--butter) !important; box-shadow: none; font-family: "Nunito", sans-serif; font-weight: 800; }
+.pack:nth-child(n) { background: #fff !important; }
+.pack.pop { background: var(--butter) !important; border-color: var(--amber) !important; }
+.pack, .pack.pop { order: 0 !important; }
+.out { background: var(--bg-1) !important; }
+.out .big { color: var(--ink); }
+.range { accent-color: var(--amber); }
+.seg button[aria-pressed="true"], .seg .on, .seg button.on { background: var(--ink) !important; }
+details:nth-of-type(n) summary::before { background: var(--amber); }
+details[open] { background: #fff !important; border-color: var(--amber) !important; }
+.closing .wrap { background: var(--ink); box-shadow: none; }
+.closing .wrap::before, .closing .wrap::after { background: rgba(255,201,60,.10); }
+.closing h2, .closing .sub { color: #fff !important; }
+.closing .btn-y { background: var(--amber) !important; color: var(--ink) !important; box-shadow: 0 5px 0 #D9A200 !important; }
 @keyframes nowSweep { to { background-size: 100% 0.36em; } }
 @keyframes nowPulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
 @media (prefers-reduced-motion: reduce) { .now, .now::after { animation: none !important; } .now { background-size: 100% 0.36em; } }
