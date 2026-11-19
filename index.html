@@ -703,6 +703,36 @@ section { padding-block: clamp(64px, 9vw, 112px); }
   .steps li { padding: 24px 48px 24px 24px; }
   .head h2 { font-size: 32px; }
 }
+/* Orders card redesign */
+.win { padding: 0 !important; }
+.ord { padding: 22px; display: grid; gap: 16px; }
+.ord-head { display: flex; align-items: center; justify-content: space-between; }
+.ord-head h2 { font-size: 20px; font-weight: 650; letter-spacing: -0.02em; }
+.ord-me { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-radius: 16px; background: color-mix(in srgb, var(--amber) 10%, var(--surface)); border: 1px solid color-mix(in srgb, var(--amber) 30%, var(--line)); }
+.ord-me .rank-name { font-size: 17px; }
+.ord-me p { margin-top: 3px; font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+.ord-me p a { color: var(--amber-ink); font-weight: 600; }
+.ord-held { flex: none; text-align: right; display: grid; }
+.ord-held b { font: 600 28px/1 var(--mono); letter-spacing: -0.03em; }
+.ord-held span { font-size: 11.5px; color: var(--dim); margin-top: 4px; }
+.ord .jobs { max-height: none !important; overflow: visible !important; margin: 0 !important; gap: 0 !important; padding: 0 !important; }
+.ord .job { display: grid !important; grid-template-columns: 78px minmax(0, 1fr) auto !important; grid-template-areas: "pay info act"; gap: 14px !important; align-items: center; padding: 14px 0 !important; border: 0 !important; border-top: 1px solid var(--line) !important; border-radius: 0 !important; background: none !important; }
+.ord .job:first-child { border-top: 0 !important; }
+.ord .job > div:first-child { grid-area: info; min-width: 0; }
+.ord .job .side { display: contents !important; }
+.ord .job .pay { grid-area: pay; display: grid; place-items: center; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--up) 14%, transparent); font-size: 14px; }
+.ord .job .acts { grid-area: act; }
+.ord .job h3 { font-size: 15px; }
+.ord .job .meta { font-family: var(--sans, inherit); font-size: 12.5px; }
+.ord .job.mine { background: none !important; }
+.ord .job.mine .pay { background: var(--amber); color: var(--amber-ink-on, #111); }
+.ord .msg { min-height: 0; }
+.ord .msg:empty { display: none; }
+@media (max-width: 640px) {
+  .ord { padding: 18px; }
+  .ord .job { grid-template-columns: minmax(0, 1fr) auto !important; grid-template-areas: "info act" "pay act"; gap: 8px 12px !important; }
+  .ord .job .pay { height: auto; justify-self: start; padding: 5px 10px; }
+}
 /* Proof cards */
 .proof { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 10px !important; width: 100% !important; max-width: 560px; }
 .proof li { padding: 16px 14px !important; gap: 4px !important; align-content: start; }
@@ -761,14 +791,14 @@ section { padding-block: clamp(64px, 9vw, 112px); }
   </div>
 
   <div class="win rise" style="--i:3" id="tasks">
-    <div class="win-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="win-title">selaam / <b>orders</b></span><span class="live"><i aria-hidden="true"></i>Live</span></div>
-    <div class="win-body">
-      <div class="report-head"><h2>Open orders</h2><span>You hold <b id="qn">0</b> of 3</span></div>
-      <div class="jobs" id="jobs"></div>
-      <div class="msg bad" id="msg" role="status" style="margin-top:10px"></div>
-      <div class="result" aria-live="polite">
+    <div class="ord">
+      <div class="ord-head"><h2>Open orders</h2><span class="live"><i aria-hidden="true"></i>Live</span></div>
+      <div class="ord-me" aria-live="polite">
         <div><div class="rank-name" id="rankName">Not joined yet</div><p id="rankSub"></p></div>
+        <div class="ord-held"><b id="qn">0</b><span>of 3 held</span></div>
       </div>
+      <div class="jobs" id="jobs"></div>
+      <div class="msg bad" id="msg" role="status"></div>
     </div>
   </div>
 </div></div>
