@@ -148,18 +148,18 @@ h2 em { color: var(--blue); }
 .win-head { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; padding: 10px 8px 12px; }
 .win-title { font-size: 19px; font-weight: 650; letter-spacing: -.02em; }
 .live { display: inline-flex; align-items: center; gap: 8px; padding: 6px 11px; border-radius: 999px; background: var(--blue-soft); font: 600 12px/1 var(--sans); color: var(--blue); }
-.win-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 10px; padding: 4px; border-radius: var(--r-md); background: radial-gradient(120% 140% at 0 0, #1B2A8F 0%, var(--ink) 60%); color: #fff; }
+.win-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 10px; padding: 4px; border-radius: var(--r-md); background: linear-gradient(135deg, var(--blue-soft) 0%, #F6F8FF 55%, var(--yel-soft) 100%); color: var(--ink); box-shadow: inset 0 0 0 1px rgba(47,75,255,.12); }
 .win-stats div { display: grid; gap: 4px; padding: 12px 10px; }
-.win-stats div + div { border-left: 1px solid rgba(255,255,255,.1); }
+.win-stats div + div { border-left: 1px solid rgba(47,75,255,.12); }
 .win-stats b { font-size: 20px; line-height: 1; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.win-stats div:first-child b { color: var(--yel); }
-.win-stats span { font: 500 10px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.win-stats div:first-child b { color: var(--blue); }
+.win-stats span { font: 500 10px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: rgba(10,10,11,.5); }
 .jobs { display: grid; gap: 8px; }
 .job { display: grid; grid-template-columns: 44px 1fr auto; align-items: start; gap: 12px; padding: 14px 14px 12px; border-radius: var(--r-md); background: #fff; box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow .3s var(--ease), transform .3s var(--ease); }
 .job:hover { box-shadow: inset 0 0 0 1px rgba(47,75,255,.25), 0 14px 30px -18px rgba(10,10,11,.35); transform: translateY(-1px); }
 .job.mine { background: var(--yel-soft); box-shadow: inset 0 0 0 1.5px rgba(150,180,20,.5); }
 .av { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--blue-soft); font-weight: 700; font-size: 18px; color: var(--blue); }
-.job[data-cat="Trades"] .av, .job[data-cat="Shops"] .av { background: var(--ink); color: var(--yel); }
+.job[data-cat="Trades"] .av, .job[data-cat="Shops"] .av { background: var(--blue); color: #fff; }
 .job[data-cat="Hotels"] .av { background: var(--yel-soft); color: #4A5A00; }
 .job.mine .av { background: var(--yel); color: var(--ink); }
 .jb { min-width: 0; padding-top: 1px; }
@@ -177,8 +177,8 @@ h2 em { color: var(--blue); }
 .pay b { font-size: 27px; line-height: 1; font-weight: 750; letter-spacing: -.045em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pay em { font: 500 10px/1 var(--mono); font-style: normal; letter-spacing: .02em; opacity: .7; white-space: nowrap; }
 .job:hover .pay { transform: rotate(0) scale(1.05); }
-.job.mine .pay { background: var(--ink); color: #fff; box-shadow: 0 12px 22px -10px rgba(10,10,11,.5); }
-.job.mine .pay b { color: var(--yel); }
+.job.mine .pay { background: linear-gradient(160deg, #4A63FF, var(--blue-d)); color: #fff; box-shadow: 0 12px 24px -10px rgba(47,75,255,.6); }
+.job.mine .pay b { color: #fff; }
 .acts { grid-column: 1 / -1; display: flex; gap: 8px; }
 .acts .btn { flex: 1; min-height: 44px; font-size: 14px; }
 .empty { padding: 34px 16px; border-radius: var(--r-md); background: var(--paper); text-align: center; color: var(--dim); }
