@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SelaamPeter · Review Agency That Pays by Account Age</title>
-<meta name="description" content="Playing on Roblox? SelaamPeter pays you Rand (R) for every review you post on our partner review blogs. Join free, claim a task, get paid.">
+<meta name="description" content="SelaamPeter pays you Rand (R) for every review you post on our partner review blogs. Join free, claim a task, get paid.">
 <meta property="og:title" content="SelaamPeter · Get paid Rand to post reviews">
 <meta property="og:description" content="Claim a task, post your review on a partner blog, and collect Rand in your wallet. 100 R welcome bonus.">
 <meta property="og:type" content="website">
@@ -623,6 +623,48 @@ body:has(.onb[open]) { overflow: hidden; }
 /* "right now" highlight: soft marker sweep + gentle pulse dot */
 .now { position: relative; white-space: nowrap; background: linear-gradient(color-mix(in srgb, var(--amber) 38%, transparent), color-mix(in srgb, var(--amber) 38%, transparent)) 0 88% / 0% 0.36em no-repeat; animation: nowSweep 1.1s .5s ease-out forwards !important; }
 .now::after { content: ""; display: inline-block; width: .14em; height: .14em; margin-left: .12em; border-radius: 50%; background: var(--up); vertical-align: .55em; animation: nowPulse 1.8s ease-in-out infinite !important; }
+.pcard { display: none; }
+@media (min-width: 800px) and (max-width: 960px) and (min-height: 600px) {
+  .hero-l { position: relative; }
+  .pcard { display: block; position: absolute; top: 8px; right: 0; width: 270px; padding: 14px; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface); }
+}
+.pc-h, .pc-f { display: flex; justify-content: space-between; align-items: center; font: 600 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+.pc-live { color: var(--up); display: inline-flex; align-items: center; gap: 6px; }
+.pc-live i { width: 7px; height: 7px; border-radius: 50%; background: var(--up); animation: nowPulse 1.8s ease-in-out infinite !important; }
+.pc-list { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 8px; }
+.pc-list li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.pc-list li:first-child { animation: pcIn .45s ease-out !important; }
+.pc-n { font-weight: 600; font-size: 13.5px; }
+.pc-r { grid-column: 1; font: 500 11px/1.3 var(--mono); color: var(--dim); }
+.pc-list b { grid-row: 1 / span 2; grid-column: 2; align-self: center; font: 600 14px/1 var(--mono); color: var(--up); }
+.pc-f { padding-top: 10px; border-top: 1px dashed var(--line-strong); }
+.pc-f b { font-size: 14px; color: var(--fg); letter-spacing: 0; }
+/* ---------- Card refresh: larger, flat, roomy (21st.dev-style) ---------- */
+.card { padding: 32px; gap: 14px; border-radius: 24px; border: 1px solid var(--line) !important; background: var(--surface) !important; box-shadow: none !important; transition: border-color .2s, transform .2s !important; }
+.card::before { display: none !important; }
+@media (hover: hover) { .card:hover { transform: translateY(-3px) !important; border-color: var(--line-strong) !important; } }
+.card h3 { font-size: 24px; letter-spacing: -0.02em; line-height: 1.2; }
+.card p { font-size: 16px; line-height: 1.55; }
+.ico { width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, var(--amber) 16%, var(--surface)); border-color: transparent; box-shadow: none; }
+.ico svg { width: 22px; height: 22px; }
+.card-top { margin-bottom: 14px; }
+.big { font-size: 64px; }
+.mock { padding: 20px; border-radius: 16px; background: var(--bg); }
+.bento { gap: 20px; }
+.packs { gap: 20px; }
+.pack { padding: 36px; }
+.steps { gap: 16px; }
+.steps li { padding: 28px 56px 28px 28px; }
+.steps h3 { font-size: 20px; }
+.win { border-radius: 24px; }
+.job { padding: 14px 16px; border-radius: 14px; }
+.proof { border: 0; background: none; overflow: visible; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: 640px; }
+.proof li { display: grid; gap: 6px; padding: 20px; border: 1px solid var(--line) !important; border-radius: 20px; background: var(--surface); }
+.proof li b { font-size: 34px; letter-spacing: -0.04em; }
+.proof li span { font-size: 13px; color: var(--muted); }
+.proof li + li { border-left: 1px solid var(--line); }
+@keyframes pcIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .pc-list li:first-child, .pc-live i { animation: none !important; } }
 @keyframes nowSweep { to { background-size: 100% 0.36em; } }
 @keyframes nowPulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
 @media (prefers-reduced-motion: reduce) { .now, .now::after { animation: none !important; } .now { background-size: 100% 0.36em; } }
@@ -658,9 +700,18 @@ body:has(.onb[open]) { overflow: hidden; }
 
 <main id="main">
 <div class="hero" id="top"><div class="wrap">
-  <div>
-    <h1 class="rise" style="--i:1">Get paid for your Roblox reviews <span class="now">right now</span>.</h1>
-    <p class="lede rise" style="--i:2">Businesses in the Roblox world pay us for reviews, and we pay you to post them. Pick an order, write a few lines, and the Rand lands in your wallet. The older your account, the more you earn, up to double.</p>
+  <div class="hero-l">
+    <aside class="pcard rise" style="--i:3" aria-label="Live payouts" id="pcard">
+      <div class="pc-h"><span>Just paid out</span><span class="pc-live"><i></i>LIVE</span></div>
+      <ul class="pc-list" id="pcList">
+        <li><span class="pc-n">Tobi2010</span><span class="pc-r">Veteran · 2×</span><b>+190 R</b></li>
+        <li><span class="pc-n">KiraBuilds</span><span class="pc-r">Seasoned · 1.5×</span><b>+105 R</b></li>
+        <li><span class="pc-n">NoobMaster_9</span><span class="pc-r">Fresh · 1×</span><b>+60 R</b></li>
+      </ul>
+      <div class="pc-f"><span>Paid today</span><b id="pcTotal">48,260 R</b></div>
+    </aside>
+    <h1 class="rise" style="--i:1">Get paid for your reviews <span class="now">right now</span>.</h1>
+    <p class="lede rise" style="--i:2">Businesses pay us for reviews, and we pay you to post them. Pick an order, write a few lines, and the Rand lands in your wallet. The older your account, the more you earn, up to double.</p>
     <div class="cta rise" style="--i:3">
       <a class="btn btn-y" id="heroCta" href="#start">Claim My 100 R</a>
       <a class="btn btn-line" href="#how">See How It Works</a>
@@ -744,7 +795,7 @@ body:has(.onb[open]) { overflow: hidden; }
     <article class="card b-mid"><div class="card-top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/></svg></span><span class="kicker">Format</span></div><h3>Short and Simple</h3><p>A few honest sentences per review is all a task needs.</p><div class="tags"><span>3–5 lines</span><span>1 star rating</span></div></article>
     <article class="card b-mid"><div class="card-top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><span class="kicker">Account age</span></div><h3>Older Accounts Earn More</h3><p>Your account age sets a bonus on every order.</p><div class="kpi"><div class="big">2<small>× max</small></div></div></article>
     <article class="card b-mid"><div class="card-top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span><span class="kicker">Queue</span></div><h3>Three at a Time</h3><p>Hold up to three orders, post them in any order, drop any you skip.</p><div class="tags"><span>claim</span><span>post</span><span>drop</span></div></article>
-    <article class="card b-mid"><div class="card-top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M17 7H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H7"/></svg></span><span class="kicker">Cost</span></div><h3>Free to Join</h3><p>No fee and no deposit. Just a Roblox username and account year.</p><div class="kpi"><div class="big">0<small>R</small></div></div></article>
+    <article class="card b-mid"><div class="card-top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M17 7H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H7"/></svg></span><span class="kicker">Cost</span></div><h3>Free to Join</h3><p>No fee and no deposit. Just a username and account year.</p><div class="kpi"><div class="big">0<small>R</small></div></div></article>
   </div>
 </div></section>
 
@@ -752,7 +803,7 @@ body:has(.onb[open]) { overflow: hidden; }
   <div class="head">
     <span class="eyebrow"><b>03</b> // Account age</span>
     <h2>Your Account Age Is Worth Money</h2>
-    <p>The older your Roblox account, the more every order pays. Join once and your boost applies to every review you post.</p>
+    <p>The older your account, the more every order pays. Join once and your boost applies to every review you post.</p>
   </div>
   <div class="packs">
     <article class="card pack">
@@ -835,8 +886,8 @@ body:has(.onb[open]) { overflow: hidden; }
     <p>Still unsure? It is free, takes a minute, and your first 100 R is on us. <a href="#start">Join now</a>.</p>
   </div>
   <div class="faq">
-    <details><summary>What is SelaamPeter?</summary><p>An in-game agency. Businesses in the Roblox world buy reviews from us, and we pay players in Rand to post them on partner review blogs.</p></details>
-    <details><summary>Who can join?</summary><p>Any player with a Roblox account. You onboard with your username and the year your account was created.</p></details>
+    <details><summary>What is SelaamPeter?</summary><p>An in-game agency. Businesses buy reviews from us, and we pay players in Rand to post them on partner review blogs.</p></details>
+    <details><summary>Who can join?</summary><p>Any player with an account. You onboard with your username and the year your account was created.</p></details>
     <details><summary>Why does account age matter?</summary><p>Older accounts look more established, so businesses pay us more for them. We pass that on: under 1 year pays 1×, 1 to 3 years pays 1.5×, and 4+ years pays 2×.</p></details>
     <details><summary>What is Rand (R)?</summary><p>Rand is the made-up in-game currency of our game. It is paid into your wallet and have no real-world value.</p></details>
     <details><summary>How much does a review pay?</summary><p>Between 45 and 95 R base, depending on the blog. That is multiplied by your account-age tier, up to 2×.</p></details>
@@ -863,7 +914,7 @@ body:has(.onb[open]) { overflow: hidden; }
     <h2 id="onbT">Set up your account</h2>
     <p class="sub">Your username and account year set your pay tier. You get 100 R and the order board unlocks.</p>
   <form class="card form" id="joinForm" novalidate>
-    <div class="field"><label for="jName">Roblox username</label><input id="jName" name="username" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Builder_Kira" aria-describedby="jMsg"></div>
+    <div class="field"><label for="jName">Username</label><input id="jName" name="username" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Builder_Kira" aria-describedby="jMsg"></div>
     <div class="field"><label for="jYear">Year account was created</label><select id="jYear" name="year" aria-describedby="jTier"><option value="">Select a year</option></select></div>
     <div class="tierprev" id="jTier" aria-live="polite">Your tier shows here once you pick a year.</div>
     <label class="agree"><input type="checkbox" id="jAgree"> <span>This is my own account and I agree to be paid in Rand.</span></label>
@@ -918,7 +969,7 @@ body:has(.onb[open]) { overflow: hidden; }
     ["Mia_Plays", "Seasoned", 680, 3, "“Three years old and it already pays 1.5×. I do two a day.”"],
     ["Kade_X", "Seasoned", 540, 2, "“Clear pay, and the multiplier shows up before you take the order.”"],
     ["Luna.R", "Fresh", 220, 0, "“Newer account, still got the 100 R bonus and steady orders.”"],
-    ["Tobi2010", "Veteran", 1510, 16, "“Joined Roblox in 2010. 2× on everything is hard to beat.”"]
+    ["Tobi2010", "Veteran", 1510, 16, "“Joined in 2010. 2× on everything is hard to beat.”"]
   ];
 
   function fresh() { return { bal: 0, done: 0, queue: [], ledger: [], gone: [], user: "", year: 0, cats: [] }; }
@@ -1058,7 +1109,7 @@ body:has(.onb[open]) { overflow: hidden; }
     e.preventDefault();
     var m = $("#jMsg"), n = $("#jName").value.trim(), v = +yr.value, tk = $("#ticket");
     function out(t, bad, el) { m.textContent = t; m.className = "msg " + (bad ? "bad" : "good"); $("#jName").setAttribute("aria-invalid", String(!!bad && el === "n")); yr.setAttribute("aria-invalid", String(!!bad && el === "y")); }
-    if (!/^[A-Za-z0-9_.]{3,20}$/.test(n)) { out("Use your Roblox username: 3 to 20 letters, numbers, dots or underscores.", true, "n"); return $("#jName").focus(); }
+    if (!/^[A-Za-z0-9_.]{3,20}$/.test(n)) { out("Use your username: 3 to 20 letters, numbers, dots or underscores.", true, "n"); return $("#jName").focus(); }
     if (!v) { out("Pick the year your account was created.", true, "y"); return yr.focus(); }
     if (!$("#jAgree").checked) return out("Please confirm this is your own account.", true);
     if (S.user) return out("Already onboarded as " + S.user + ". Head to the dashboard and take an order.");
@@ -1099,6 +1150,27 @@ body:has(.onb[open]) { overflow: hidden; }
   $("#resetBtn").addEventListener("click", function () { S = fresh(); try { localStorage.removeItem(KEY); } catch (e) {} posting = {}; $("#jName").value = ""; yr.value = ""; $("#jAgree").checked = false; tierPrev(); $("#jMsg").textContent = ""; $("#ticket").hidden = true; cr = 0; say(""); render(); });
 
   render();
+})();
+</script>
+<script>
+(function () {
+  var list = document.getElementById("pcList"), tot = document.getElementById("pcTotal");
+  if (!list || !tot) return;
+  var names = ["Mika_RBX", "SkyForge", "Zed_Builds", "LunaPlays", "Ace2014", "PixelPete", "Nova_09", "BrickBoss", "Juno_Quest", "Rafi2012"];
+  var ranks = [["Fresh", 1], ["Seasoned", 1.5], ["Veteran", 2]];
+  var total = 48260;
+  setInterval(function () {
+    if (document.hidden) return;
+    var r = ranks[Math.floor(Math.random() * 3)], base = 45 + Math.floor(Math.random() * 11) * 5;
+    var amt = Math.round(base * r[1]), li = document.createElement("li");
+    var n = document.createElement("span"); n.className = "pc-n"; n.textContent = names[Math.floor(Math.random() * names.length)];
+    var k = document.createElement("span"); k.className = "pc-r"; k.textContent = r[0] + " · " + r[1] + "×";
+    var b = document.createElement("b"); b.textContent = "+" + amt + " R";
+    li.append(n, k, b);
+    list.prepend(li);
+    while (list.children.length > 3) list.lastChild.remove();
+    total += amt; tot.textContent = total.toLocaleString("en-US") + " R";
+  }, 2800);
 })();
 </script>
 </body>
