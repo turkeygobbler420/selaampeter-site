@@ -580,6 +580,16 @@ fieldset.checks legend { padding: 0; margin-bottom: 8px; font: 500 12px/1 var(--
 .checks input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .agree { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: var(--muted); cursor: pointer; }
 .agree input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--amber); flex: none; }
+.onb { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: var(--bg); color: var(--fg); overflow-y: auto; }
+.onb::backdrop { background: var(--bg); }
+.onb[open] { animation: onbin .22s var(--ease); }
+@keyframes onbin { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.onb-in { position: relative; width: min(560px, 100%); margin: 0 auto; padding: 72px 20px 40px; }
+.onb-in h2 { margin-top: 12px; font-size: clamp(28px, 6vw, 40px); }
+.onb-in .sub { margin: 10px 0 22px; color: var(--muted); font: 500 14px/1.6 var(--mono); }
+.onb-x { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--fg); font-size: 26px; line-height: 1; cursor: pointer; }
+.onb-x:focus-visible { outline: 2px solid var(--cool); outline-offset: 2px; }
+body:has(.onb[open]) { overflow: hidden; }
 .jhelp { margin-top: 10px; font: 500 12px/1.5 var(--mono); color: var(--dim); }
 
 @media (max-width: 540px) {
@@ -812,6 +822,16 @@ fieldset.checks legend { padding: 0; margin-bottom: 8px; font: 500 12px/1 var(--
     <h2>Onboard in Under a Minute</h2>
     <p class="sub">Tell us your username and when your account was created. We set your pay tier, add 100 R$ to your wallet and unlock the order board.</p>
   </div>
+  <div><button class="btn btn-y" type="button" data-onb>Start Onboarding</button></div>
+</div></section>
+</main>
+
+<dialog class="onb" id="onb" aria-labelledby="onbT">
+  <div class="onb-in">
+    <button class="onb-x" type="button" data-onb-close aria-label="Close onboarding">&times;</button>
+    <span class="eyebrow">Onboarding</span>
+    <h2 id="onbT">Set up your account</h2>
+    <p class="sub">Your username and account year set your pay tier. You get 100 R$ and the order board unlocks.</p>
   <form class="card form" id="joinForm" novalidate>
     <div class="field"><label for="jName">Roblox username</label><input id="jName" name="username" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Builder_Kira" aria-describedby="jMsg"></div>
     <div class="field"><label for="jYear">Year account was created</label><select id="jYear" name="year" aria-describedby="jTier"><option value="">Select a year</option></select></div>
@@ -822,9 +842,8 @@ fieldset.checks legend { padding: 0; margin-bottom: 8px; font: 500 12px/1 var(--
     <div class="msg" id="jMsg" role="status"></div>
     <div class="ticket" id="ticket" hidden></div>
   </form>
-</div></section>
-</main>
-
+  </div>
+</dialog>
 <footer><div class="wrap"><span>SelaamPeter · a fictional in-game site · Rials have no real-world value</span><button type="button" id="resetBtn">Reset Demo</button></div></footer>
 <div class="mbar away" id="mbar" aria-hidden="true"><a class="btn btn-y" href="#tasks" tabindex="-1">Open Dashboard</a></div>
 
@@ -926,7 +945,7 @@ fieldset.checks legend { padding: 0; margin-bottom: 8px; font: 500 12px/1 var(--
   document.addEventListener("click", function (e) {
     var t = e.target.closest("[data-claim],[data-post],[data-drop]"); if (!t) return;
     if (t.dataset.claim) {
-      if (!S.user) { say("Onboard first so we can set your pay tier.", true); var o = $("#start"); if (o) o.scrollIntoView({ behavior: "smooth" }); return; }
+      if (!S.user) { say("Onboard first so we can set your pay tier.", true); openOnb(); return; }
       if (S.queue.length >= 3) return say("Queue full. Post or drop an order first.", true);
       var c = jobById(t.dataset.claim); if (!c) return;
       S.queue.push(c.id); say("Order taken: " + c.biz + ". Hit Post when your review is up."); save(); render();
@@ -983,6 +1002,15 @@ fieldset.checks legend { padding: 0; margin-bottom: 8px; font: 500 12px/1 var(--
     targets.forEach(function (t) { if (t) io.observe(t); });
   })();
 
+  /* onboarding dialog */
+  var dlg = $("#onb");
+  function openOnb() { if (!dlg.open) { dlg.showModal(); dlg.scrollTop = 0; } setTimeout(function () { var f = $("#jName"); if (f) f.focus({ preventScroll: true }); }, 60); }
+  function closeOnb() { if (dlg.open) dlg.close(); }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href="#start"],[data-onb]');
+    if (a) { e.preventDefault(); openOnb(); return; }
+    if (e.target.closest("[data-onb-close]") || e.target.closest('#ticket a')) closeOnb();
+  });
   /* onboarding */
   var yr = $("#jYear");
   for (var y = NOW; y >= 2006; y--) yr.insertAdjacentHTML("beforeend", '<option value="' + y + '">' + y + "</option>");
